@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4338ca;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#grad)"/>
+  <!-- Cinema Seat / Armchair Icon in Warm Gold -->
+  <path d="M160 140 C160 118 178 100 200 100 L312 100 C334 100 352 118 352 140 L352 260 L160 260 Z" fill="#fbbf24"/>
+  <rect x="120" y="220" width="40" height="120" rx="20" fill="#f59e0b"/>
+  <rect x="352" y="220" width="40" height="120" rx="20" fill="#f59e0b"/>
+  <rect x="150" y="260" width="212" height="70" rx="25" fill="#fef3c7"/>
+  <path d="M190 330 L170 410 L210 410 L220 330 Z" fill="#94a3b8"/>
+  <path d="M322 330 L342 410 L302 410 L292 330 Z" fill="#94a3b8"/>
+  <!-- Sprout for Humanistic growth -->
+  <path d="M256 70 C240 50 210 50 210 70 C210 90 256 100 256 100 C256 100 302 90 302 70 C302 50 272 50 256 70 Z" fill="#10b981"/>
+</svg>

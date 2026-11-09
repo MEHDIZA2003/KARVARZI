@@ -1,0 +1,1571 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "role": "teen",
+      "name": "شهاب زرگران",
+      "title": "کارورز نوجوان (۱۰ ساله)",
+      "age": 10,
+      "birthdate": "",
+      "mobile": "",
+      "pin": "",
+      "coins": 135,
+      "badges": [
+        "خوش‌قولی",
+        "کاشف فروشگاه ذهن برتر",
+        "گزارشگر خلاق"
+      ],
+      "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "u2",
+      "role": "teen",
+      "name": "نوید شاهزیدی",
+      "title": "کارورز نوجوان (۱۱ ساله)",
+      "age": 11,
+      "birthdate": "",
+      "mobile": "",
+      "pin": "",
+      "coins": 110,
+      "badges": [
+        "خوش‌قولی",
+        "همیار مهربان"
+      ],
+      "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "u3",
+      "role": "store_owner",
+      "name": "آقای رضا شیرازیان",
+      "title": "استاد و مربی کارورزی در فروشگاه ذهن برتر",
+      "storeName": "فروشگاه ذهن برتر",
+      "birthdate": "",
+      "mobile": "",
+      "pin": "",
+      "online": true,
+      "activeHours": "شنبه تا پنجشنبه (۹ الی ۱۲ و ۱۶ الی ۲۱)",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "u4",
+      "role": "dual",
+      "activeRole": "coach",
+      "name": "خانم نصیبه هاشمی",
+      "title": "مربی کارورزی و ادمین نرم‌افزار",
+      "birthdate": "",
+      "mobile": "",
+      "pin": "",
+      "online": true,
+      "activeHours": "پاسخگویی آنلاین مربی‌گری و هدایت تربیتی",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "u5",
+      "role": "admin",
+      "name": "آقای ناصر منتظری",
+      "title": "مدیر ارشد و ادمین کل سامانه",
+      "birthdate": "",
+      "mobile": "",
+      "pin": "",
+      "online": true,
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "u6",
+      "role": "admin",
+      "name": "آقای مهدی زرگران",
+      "title": "مدیر و ادمین ارشد کل سامانه",
+      "birthdate": "13541229",
+      "mobile": "09133544489",
+      "pin": "1229",
+      "online": true,
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80"
+    }
+  ],
+  "weeks": [
+    {
+      "weekId": 1,
+      "weekTitle": "هفته اول (شنبه ۱۴ تا جمعه ۲۰ آبان)",
+      "days": [
+        {
+          "dayKey": "sat_w1",
+          "dayName": "شنبه ۱۴ آبان",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ (صبح) و ۱۶:۰۰ الی ۲۱:۰۰ (عصر)",
+          "slots": [
+            {
+              "slotId": "s1_sat_w1",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد کارورزی آقای شیرازیان از ساعت ۹ است (۱ ساعت ناقص) - نیاز به تایید ادمین یا استاد"
+            },
+            {
+              "slotId": "s2_sat_w1",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s3_sat_w1",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "booked",
+              "bookedBy": "شهاب زرگران",
+              "userId": "u1",
+              "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80"
+            },
+            {
+              "slotId": "s4_sat_w1",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "booked",
+              "bookedBy": "نوید شاهزیدی",
+              "userId": "u2",
+              "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80"
+            },
+            {
+              "slotId": "s5_sat_w1",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد کارورزی آقای شیرازیان تا ساعت ۲۱ است (۱ ساعت ناقص) - نیاز به تایید ادمین یا استاد"
+            }
+          ]
+        },
+        {
+          "dayKey": "sun_w1",
+          "dayName": "یکشنبه ۱۵ آبان",
+          "ownerPresence": "۱۶:۰۰ الی ۲۱:۰۰ (عصر و شب)",
+          "slots": [
+            {
+              "slotId": "s1_sun_w1",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s2_sun_w1",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s3_sun_w1",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s4_sun_w1",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s5_sun_w1",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد تا ۲۱ است (۱ ساعت ناقص)"
+            }
+          ]
+        },
+        {
+          "dayKey": "mon_w1",
+          "dayName": "دوشنبه ۱۶ آبان",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۱:۰۰",
+          "slots": [
+            {
+              "slotId": "s1_mon_w1",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد از ۹ صبح است"
+            },
+            {
+              "slotId": "s2_mon_w1",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s3_mon_w1",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s4_mon_w1",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s5_mon_w1",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد تا ۲۱ است"
+            }
+          ]
+        },
+        {
+          "dayKey": "tue_w1",
+          "dayName": "سه‌شنبه ۱۷ آبان",
+          "ownerPresence": "۱۶:۰۰ الی ۲۱:۰۰ (عصر)",
+          "slots": [
+            {
+              "slotId": "s1_tue_w1",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s2_tue_w1",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s3_tue_w1",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s4_tue_w1",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s5_tue_w1",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null
+            }
+          ]
+        },
+        {
+          "dayKey": "wed_w1",
+          "dayName": "چهارشنبه ۱۸ آبان",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۱:۰۰",
+          "slots": [
+            {
+              "slotId": "s1_wed_w1",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s2_wed_w1",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s3_wed_w1",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s4_wed_w1",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s5_wed_w1",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null
+            }
+          ]
+        },
+        {
+          "dayKey": "thu_w1",
+          "dayName": "پنجشنبه ۱۹ آبان",
+          "ownerPresence": "۰۹:۰۰ الی ۱۴:۰۰ (صبح تا ظهر)",
+          "slots": [
+            {
+              "slotId": "s1_thu_w1",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s2_thu_w1",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s3_thu_w1",
+              "time": "۱۲:۰۰ تا ۱۴:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s4_thu_w1",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "فروشگاه پنجشنبه عصر تعطیل است"
+            },
+            {
+              "slotId": "s5_thu_w1",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null
+            }
+          ]
+        },
+        {
+          "dayKey": "fri_w1",
+          "dayName": "جمعه ۲۰ آبان",
+          "ownerPresence": "تعطیل رسمی فروشگاه ذهن برتر",
+          "slots": [
+            {
+              "slotId": "s1_fri_w1",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s2_fri_w1",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s3_fri_w1",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s4_fri_w1",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null
+            },
+            {
+              "slotId": "s5_fri_w1",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "weekId": 2,
+      "weekTitle": "هفته دوم (شنبه ۲۱ تا جمعه ۲۷ آبان)",
+      "days": [
+        {
+          "dayKey": "sat_w2",
+          "dayName": "شنبه (هفته 2)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ (صبح) و ۱۶:۰۰ الی ۲۱:۰۰ (عصر)",
+          "slots": [
+            {
+              "slotId": "s1_w2_sat",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد کارورزی آقای شیرازیان از ساعت ۹ است (۱ ساعت ناقص) - نیاز به تایید ادمین یا استاد"
+            },
+            {
+              "slotId": "s2_w2_sat",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w2_sat",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w2_sat",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w2_sat",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد کارورزی آقای شیرازیان تا ساعت ۲۱ است (۱ ساعت ناقص) - نیاز به تایید ادمین یا استاد"
+            }
+          ]
+        },
+        {
+          "dayKey": "sun_w2",
+          "dayName": "یکشنبه (هفته 2)",
+          "ownerPresence": "۱۶:۰۰ الی ۲۱:۰۰ (عصر و شب)",
+          "slots": [
+            {
+              "slotId": "s1_w2_sun",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w2_sun",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w2_sun",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w2_sun",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w2_sun",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد تا ۲۱ است (۱ ساعت ناقص)"
+            }
+          ]
+        },
+        {
+          "dayKey": "mon_w2",
+          "dayName": "دوشنبه (هفته 2)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۱:۰۰",
+          "slots": [
+            {
+              "slotId": "s1_w2_mon",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد از ۹ صبح است"
+            },
+            {
+              "slotId": "s2_w2_mon",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w2_mon",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w2_mon",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w2_mon",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد تا ۲۱ است"
+            }
+          ]
+        },
+        {
+          "dayKey": "tue_w2",
+          "dayName": "سه‌شنبه (هفته 2)",
+          "ownerPresence": "۱۶:۰۰ الی ۲۱:۰۰ (عصر)",
+          "slots": [
+            {
+              "slotId": "s1_w2_tue",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w2_tue",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w2_tue",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w2_tue",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w2_tue",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "dayKey": "wed_w2",
+          "dayName": "چهارشنبه (هفته 2)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۱:۰۰",
+          "slots": [
+            {
+              "slotId": "s1_w2_wed",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w2_wed",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w2_wed",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w2_wed",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w2_wed",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "dayKey": "thu_w2",
+          "dayName": "پنجشنبه (هفته 2)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۴:۰۰ (صبح تا ظهر)",
+          "slots": [
+            {
+              "slotId": "s1_w2_thu",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w2_thu",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w2_thu",
+              "time": "۱۲:۰۰ تا ۱۴:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w2_thu",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "فروشگاه پنجشنبه عصر تعطیل است"
+            },
+            {
+              "slotId": "s5_w2_thu",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "dayKey": "fri_w2",
+          "dayName": "جمعه (هفته 2)",
+          "ownerPresence": "تعطیل رسمی فروشگاه ذهن برتر",
+          "slots": [
+            {
+              "slotId": "s1_w2_fri",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w2_fri",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w2_fri",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w2_fri",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w2_fri",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "weekId": 3,
+      "weekTitle": "هفته سوم (شنبه ۲۸ آبان تا جمعه ۴ آذر)",
+      "days": [
+        {
+          "dayKey": "sat_w3",
+          "dayName": "شنبه (هفته 3)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ (صبح) و ۱۶:۰۰ الی ۲۱:۰۰ (عصر)",
+          "slots": [
+            {
+              "slotId": "s1_w3_sat",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد کارورزی آقای شیرازیان از ساعت ۹ است (۱ ساعت ناقص) - نیاز به تایید ادمین یا استاد"
+            },
+            {
+              "slotId": "s2_w3_sat",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w3_sat",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w3_sat",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w3_sat",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد کارورزی آقای شیرازیان تا ساعت ۲۱ است (۱ ساعت ناقص) - نیاز به تایید ادمین یا استاد"
+            }
+          ]
+        },
+        {
+          "dayKey": "sun_w3",
+          "dayName": "یکشنبه (هفته 3)",
+          "ownerPresence": "۱۶:۰۰ الی ۲۱:۰۰ (عصر و شب)",
+          "slots": [
+            {
+              "slotId": "s1_w3_sun",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w3_sun",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w3_sun",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w3_sun",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w3_sun",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد تا ۲۱ است (۱ ساعت ناقص)"
+            }
+          ]
+        },
+        {
+          "dayKey": "mon_w3",
+          "dayName": "دوشنبه (هفته 3)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۱:۰۰",
+          "slots": [
+            {
+              "slotId": "s1_w3_mon",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد از ۹ صبح است"
+            },
+            {
+              "slotId": "s2_w3_mon",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w3_mon",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w3_mon",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w3_mon",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد تا ۲۱ است"
+            }
+          ]
+        },
+        {
+          "dayKey": "tue_w3",
+          "dayName": "سه‌شنبه (هفته 3)",
+          "ownerPresence": "۱۶:۰۰ الی ۲۱:۰۰ (عصر)",
+          "slots": [
+            {
+              "slotId": "s1_w3_tue",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w3_tue",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w3_tue",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w3_tue",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w3_tue",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "dayKey": "wed_w3",
+          "dayName": "چهارشنبه (هفته 3)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۱:۰۰",
+          "slots": [
+            {
+              "slotId": "s1_w3_wed",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w3_wed",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w3_wed",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w3_wed",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w3_wed",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "dayKey": "thu_w3",
+          "dayName": "پنجشنبه (هفته 3)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۴:۰۰ (صبح تا ظهر)",
+          "slots": [
+            {
+              "slotId": "s1_w3_thu",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w3_thu",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w3_thu",
+              "time": "۱۲:۰۰ تا ۱۴:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w3_thu",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "فروشگاه پنجشنبه عصر تعطیل است"
+            },
+            {
+              "slotId": "s5_w3_thu",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "dayKey": "fri_w3",
+          "dayName": "جمعه (هفته 3)",
+          "ownerPresence": "تعطیل رسمی فروشگاه ذهن برتر",
+          "slots": [
+            {
+              "slotId": "s1_w3_fri",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w3_fri",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w3_fri",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w3_fri",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w3_fri",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "weekId": 4,
+      "weekTitle": "هفته چهارم (شنبه ۵ تا جمعه ۱۱ آذر)",
+      "days": [
+        {
+          "dayKey": "sat_w4",
+          "dayName": "شنبه (هفته 4)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ (صبح) و ۱۶:۰۰ الی ۲۱:۰۰ (عصر)",
+          "slots": [
+            {
+              "slotId": "s1_w4_sat",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد کارورزی آقای شیرازیان از ساعت ۹ است (۱ ساعت ناقص) - نیاز به تایید ادمین یا استاد"
+            },
+            {
+              "slotId": "s2_w4_sat",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w4_sat",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w4_sat",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w4_sat",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد کارورزی آقای شیرازیان تا ساعت ۲۱ است (۱ ساعت ناقص) - نیاز به تایید ادمین یا استاد"
+            }
+          ]
+        },
+        {
+          "dayKey": "sun_w4",
+          "dayName": "یکشنبه (هفته 4)",
+          "ownerPresence": "۱۶:۰۰ الی ۲۱:۰۰ (عصر و شب)",
+          "slots": [
+            {
+              "slotId": "s1_w4_sun",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w4_sun",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w4_sun",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w4_sun",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w4_sun",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد تا ۲۱ است (۱ ساعت ناقص)"
+            }
+          ]
+        },
+        {
+          "dayKey": "mon_w4",
+          "dayName": "دوشنبه (هفته 4)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۱:۰۰",
+          "slots": [
+            {
+              "slotId": "s1_w4_mon",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد از ۹ صبح است"
+            },
+            {
+              "slotId": "s2_w4_mon",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w4_mon",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w4_mon",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w4_mon",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "حضور استاد تا ۲۱ است"
+            }
+          ]
+        },
+        {
+          "dayKey": "tue_w4",
+          "dayName": "سه‌شنبه (هفته 4)",
+          "ownerPresence": "۱۶:۰۰ الی ۲۱:۰۰ (عصر)",
+          "slots": [
+            {
+              "slotId": "s1_w4_tue",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w4_tue",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w4_tue",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w4_tue",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w4_tue",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "dayKey": "wed_w4",
+          "dayName": "چهارشنبه (هفته 4)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۱:۰۰",
+          "slots": [
+            {
+              "slotId": "s1_w4_wed",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w4_wed",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w4_wed",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w4_wed",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w4_wed",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "dayKey": "thu_w4",
+          "dayName": "پنجشنبه (هفته 4)",
+          "ownerPresence": "۰۹:۰۰ الی ۱۴:۰۰ (صبح تا ظهر)",
+          "slots": [
+            {
+              "slotId": "s1_w4_thu",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "partial_locked",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w4_thu",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w4_thu",
+              "time": "۱۲:۰۰ تا ۱۴:۰۰",
+              "period": "morning",
+              "status": "available",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w4_thu",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": "فروشگاه پنجشنبه عصر تعطیل است"
+            },
+            {
+              "slotId": "s5_w4_thu",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        },
+        {
+          "dayKey": "fri_w4",
+          "dayName": "جمعه (هفته 4)",
+          "ownerPresence": "تعطیل رسمی فروشگاه ذهن برتر",
+          "slots": [
+            {
+              "slotId": "s1_w4_fri",
+              "time": "۰۸:۰۰ تا ۱۰:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s2_w4_fri",
+              "time": "۱۰:۰۰ تا ۱۲:۰۰",
+              "period": "morning",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s3_w4_fri",
+              "time": "۱۶:۰۰ تا ۱۸:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s4_w4_fri",
+              "time": "۱۸:۰۰ تا ۲۰:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            },
+            {
+              "slotId": "s5_w4_fri",
+              "time": "۲۰:۰۰ تا ۲۲:۰۰",
+              "period": "evening",
+              "status": "disabled",
+              "bookedBy": null,
+              "userId": null,
+              "reason": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "id": "rep_101",
+      "userId": "u1",
+      "userName": "شهاب زرگران",
+      "shift": "شنبه ۱۶ الی ۱۸",
+      "text": "امروز با راهنمایی استاد کارورزی آقای رضا شیرازیان در فروشگاه ذهن برتر، قفسه کتاب‌ها و بازی‌های فکری را چیدیم و نحوه پاسخگویی مهربانانه به مشتریان را تمرین کردیم.",
+      "hasAudio": true,
+      "audioDuration": "02:45",
+      "hasVideo": false,
+      "mentorFeedback": "آفرین شهاب عزیز؛ گزارش صوتی‌ات بسیار دقیق و پرانرژی بود. مهارت دسته‌بندی موضوعی کتاب‌ها عالی پیش رفته است.",
+      "mentorName": "خانم نصیبه هاشمی",
+      "rating": 5,
+      "coinsAwarded": 15,
+      "createdAt": "1405/08/14 18:30"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "senderId": "u4",
+      "senderName": "خانم نصیبه هاشمی (مربی)",
+      "text": "سلام به همه نوجوانان عزیز؛ کارورزی در فروشگاه ذهن برتر فرصتی برای تجربه عملی، یادگیری اخلاق حرفه‌ای و مسئولیت‌پذیری مشارکتی است.",
+      "time": "1405/08/14 14:00"
+    }
+  ],
+  "alarms": [],
+  "botConfig": {
+    "baleEnabled": true,
+    "adminMobile": "09133544489"
+  }
+}

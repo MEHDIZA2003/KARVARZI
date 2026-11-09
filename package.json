@@ -1,0 +1,21 @@
+{
+  "name": "karvarzi-platform",
+  "version": "1.0.0",
+  "description": "پلتفرم کارورزی مدرسه انسان‌گرا و مشارکتی",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-server.js"
+  },
+  "keywords": [
+    "education",
+    "humanistic",
+    "internship",
+    "bale",
+    "eitaa",
+    "telegram",
+    "pwa"
+  ],
+  "author": "Antigravity AI Architecture Team",
+  "license": "MIT"
+}

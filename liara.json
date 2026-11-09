@@ -1,0 +1,14 @@
+{
+  "platform": "node",
+  "app": "karvarzi-zehne-bartar",
+  "port": 3000,
+  "node": {
+    "version": "20"
+  },
+  "disks": [
+    {
+      "name": "karvarzi-data",
+      "mountTo": "/app/data"
+    }
+  ]
+}

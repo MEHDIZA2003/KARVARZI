@@ -1,0 +1,2388 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سامانه کارورزی مدرسه انسان‌گرا و مشارکتی - فروشگاه ذهن برتر</title>
+  
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#4338ca">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+
+  <style>
+    /* 100% SELF-CONTAINED EMBEDDED CSS - ZERO EXTERNAL CDN DEPENDENCIES */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Vazirmatn', 'Vazir', 'Tahoma', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.5;
+      direction: rtl;
+      text-align: right;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    /* Layout Containers */
+    .app-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border-left: 1px solid #e2e8f0;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    /* Top Universal Bar */
+    .top-header {
+      background: linear-gradient(135deg, #3730a3, #4338ca, #0284c7);
+      color: #ffffff;
+      padding: 12px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .user-profile-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .avatar-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #fde047;
+      object-cover: cover;
+      background: #e0e7ff;
+      display: block;
+    }
+
+    .online-dot {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #10b981;
+      border: 2px solid #ffffff;
+    }
+
+    .role-badge {
+      position: absolute;
+      bottom: -4px;
+      left: -4px;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .badge-admin { background: #c084fc; color: #3b0764; }
+    .badge-teen { background: #fde047; color: #713f12; }
+    .badge-coach { background: #38bdf8; color: #082f49; }
+    .badge-owner { background: #34d399; color: #064e3b; }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn {
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-login { background: rgba(15, 23, 42, 0.7); color: #fde047; border: 1px solid rgba(250, 204, 21, 0.4); }
+    .btn-sos { background: #e11d48; color: #ffffff; animation: gentle-pulse 2s infinite; }
+    .btn-alarm { background: #f59e0b; color: #451a03; }
+    .btn-primary { background: #4338ca; color: #ffffff; }
+    .btn-primary:hover { background: #3730a3; }
+    .btn-success { background: #059669; color: #ffffff; }
+    .btn-success:hover { background: #047857; }
+    .btn-secondary { background: #f1f5f9; color: #334155; }
+    .btn-secondary:hover { background: #e2e8f0; }
+
+    .role-select {
+      background: rgba(30, 27, 75, 0.85);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 7px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(165, 180, 252, 0.4);
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* Welcome Banner */
+    .welcome-card {
+      background: linear-gradient(135deg, #fef3c7, #e0f2fe, #d1fae5);
+      border: 1px solid #fde68a;
+      border-radius: 18px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 2px solid #e2e8f0;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .tab-item {
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 12px 12px 0 0;
+      border: none;
+      background: transparent;
+      color: #64748b;
+      cursor: pointer;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .tab-item:hover { color: #1e293b; }
+    .tab-item.active {
+      background: rgba(238, 242, 255, 0.8);
+      color: #4338ca;
+      border-bottom: 3px solid #4338ca;
+    }
+
+    /* Panels Display Control - STRICTLY ONE PANEL AT A TIME */
+    .tab-panel {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .tab-panel.active {
+      display: flex;
+    }
+
+    /* Card Panels */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Calendar Grid & Cinema Seats */
+    .week-buttons {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .week-btn {
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .week-btn.active {
+      background: #4338ca;
+      color: #ffffff;
+      border-color: #4338ca;
+    }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 8px;
+    }
+    .day-btn {
+      padding: 8px;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .day-btn.active {
+      background: #f59e0b;
+      color: #451a03;
+      font-weight: 800;
+      border-color: #d97706;
+      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
+    }
+
+    .store-presence-banner {
+      background: linear-gradient(135deg, #fef3c7, #fffbeb);
+      border: 2px dashed #f59e0b;
+      border-radius: 16px;
+      padding: 12px;
+      text-align: center;
+      color: #78350f;
+      font-size: 12px;
+    }
+
+    .seats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .seat-card {
+      padding: 14px;
+      border-radius: 16px;
+      border: 2px solid #cbd5e1;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .seat-card.available { background: #ffffff; border-color: #cbd5e1; color: #1e293b; }
+    .seat-card.selected { background: #d1fae5; border-color: #10b981; color: #065f46; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3); }
+    .seat-card.booked { background: #fff1f2; border-color: #fda4af; color: #881337; }
+    .seat-card.partial {
+      background: repeating-linear-gradient(45deg, #fff7ed, #fff7ed 10px, #ffedd5 10px, #ffedd5 20px);
+      border-color: #fb923c;
+      color: #7c2d12;
+    }
+    .seat-card.disabled { background: #f1f5f9; border-color: #e2e8f0; color: #94a3b8; opacity: 0.6; cursor: not-allowed; }
+
+    /* Legend */
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 8px;
+      padding: 10px;
+      background: #f1f5f9;
+      border-radius: 12px;
+      font-size: 11px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-box {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      border: 1px solid #94a3b8;
+    }
+
+    /* Modal Overlays */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 100;
+    }
+    .modal-overlay.active { display: flex; }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 24px;
+      max-width: 480px;
+      width: 100%;
+      padding: 22px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border: 2px solid #818cf8;
+    }
+
+    .form-input {
+      width: 100%;
+      font-family: inherit;
+      font-size: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      outline: none;
+    }
+    .form-input:focus { border-color: #4338ca; box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.15); }
+
+    /* Games Specific Styling */
+    .game-choice-btn {
+      padding: 12px;
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .game-choice-btn:hover { background: #e0e7ff; border-color: #6366f1; }
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    .memory-card {
+      height: 64px;
+      border-radius: 14px;
+      border: 2px solid #4338ca;
+      background: #4338ca;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .memory-card.revealed { background: #fef3c7; border-color: #f59e0b; }
+    .memory-card.matched { background: #d1fae5; border-color: #10b981; }
+
+    /* Pulse */
+    @keyframes gentle-pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); }
+      50% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(225, 29, 72, 0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-wrapper">
+
+    <!-- ======================================================== -->
+    <!-- 1. DEDICATED OFFICIAL LOGIN VIEW (Mandatory First Screen) -->
+    <!-- ======================================================== -->
+    <div id="app-login-container" style="display:none; padding: 24px 16px; max-width: 500px; margin: 30px auto; width: 100%;">
+      <div class="card" style="border: 2px solid #818cf8; box-shadow: 0 10px 30px rgba(67, 56, 202, 0.15); border-radius: 16px; padding: 24px; background: #ffffff;">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <div style="font-size: 40px; margin-bottom: 8px;">🌱🏪</div>
+          <h2 style="font-size: 17px; font-weight: 900; color: #312e81; margin-bottom: 4px;">
+            ورود به سامانه کارورزی فروشگاه ذهن برتر
+          </h2>
+          <p style="font-size: 11px; color: #64748b;">
+            مدرسه انسان‌گرا و مشارکتی ● بدون نیاز به فیلترشکن
+          </p>
+        </div>
+
+        <!-- Step 1: User Identity & Credentials -->
+        <div id="login-step-credentials" style="display: flex; flex-direction: column; gap: 14px;">
+          <div>
+            <label style="font-size: 12px; font-weight: 800; color: #1e293b; display: block; margin-bottom: 6px;">
+              👤 نام خود را انتخاب فرمایید:
+            </label>
+            <select id="login-user-select" class="form-input" style="font-size: 13px; font-weight: 700;" onchange="handleLoginUserSelectChange(this.value)">
+              <option value="" disabled selected>-- لطفاً نام خود را از فهرست انتخاب فرمایید --</option>
+              <option value="u1">👦 شهاب زرگران (کارورز نوجوان)</option>
+              <option value="u2">👦 نوید شاهزیدی (کارورز نوجوان)</option>
+              <option value="u3">👨‍🏫 آقای رضا شیرازیان (استاد و مربی کارورزی در فروشگاه ذهن برتر)</option>
+              <option value="u4_coach">🧭 خانم نصیبه هاشمی (مربی کارورزی و تسهیلگر تربیتی)</option>
+              <option value="u4_admin">💻 خانم نصیبه هاشمی (ادمین نرم‌افزار و فنی)</option>
+              <option value="u5">⚙️ آقای ناصر منتظری (مدیر ارشد و ادمین کل)</option>
+              <option value="u6">👑 آقای مهدی زرگران (مدیر و ادمین ارشد کل سامانه)</option>
+              <option value="new_teen">➕ کارورز یا نوجوان جدید (ثبت‌نام اولیه)</option>
+            </select>
+        </span>
+          </div>
+
+          <!-- If new teen selected -->
+          <div id="login-custom-name-wrapper" style="display:none;">
+            <label style="font-size: 12px; font-weight: 800; color: #1e293b; display: block; margin-bottom: 6px;">
+              📝 نام و نام‌خانوادگی کارورز جدید:
+            </label>
+            <input id="login-custom-name-input" type="text" class="form-input" placeholder="مثلاً: علی صادقی">
+          </div>
+
+          <div>
+            <label style="font-size: 12px; font-weight: 800; color: #1e293b; display: block; margin-bottom: 6px;">
+              📅 تاریخ تولد شمسی (۸ رقم بدون اسلش - کد کاربری شما):
+            </label>
+            <input id="login-birthdate-input" type="text" maxlength="10" class="form-input" placeholder="مثال: 13541229 یا 13920514" style="font-family: monospace; font-size: 14px; direction: ltr; text-align: right;">
+            <span style="font-size: 10px; color: #64748b; margin-top: 3px; display: block;">
+              💡 نکته: اگر به اشتباه با اسلش هم تایپ کنید، سیستم خودکار اسلش‌ها را حذف می‌کند.
+            </span>
+          </div>
+
+          <div>
+            <label style="font-size: 12px; font-weight: 800; color: #1e293b; display: block; margin-bottom: 6px;">
+              📱 شماره تلفن همراه (رمز ورود و دریافت پیامک تایید):
+            </label>
+            <input id="login-mobile-input" type="tel" maxlength="11" class="form-input" placeholder="مثال: 09133544489" style="font-family: monospace; font-size: 14px; direction: ltr; text-align: right;">
+          </div>
+
+          <!-- Info Alert -->
+          <div id="login-info-box" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 10px; font-size: 11px; color: #1e40af; line-height: 1.6;">
+            ℹ️ <strong>راهنمای ورود:</strong> مشخصاتی که وارد می‌فرمایید به عنوان کد کاربری و شماره دائم شما ثبت شده و در مراجعات بعدی با همین مشخصات وارد می‌شوید.
+          </div>
+
+          <button id="btn-send-login-otp" class="btn btn-primary" style="padding: 12px; font-size: 13px; font-weight: 800; justify-content: center;" onclick="sendLoginOtpAction()">
+            <span>📲</span>
+            <span>دریافت کد تایید پیامکی (OTP)</span>
+          </button>
+        </div>
+
+        <!-- Step 2: OTP Verification -->
+        <div id="login-step-otp" style="display:none; flex-direction: column; gap: 14px; margin-top: 10px;">
+          <div style="background: #fef9c3; border: 1px solid #fde047; border-radius: 10px; padding: 12px; text-align: center;">
+            <span style="font-size: 12px; font-weight: 800; color: #854d0e; display: block;">
+              🔐 کد تایید پیامکی ارسال شد (کد تستی سامانه: <span id="display-otp-code" style="font-family: monospace; font-size: 16px; color: #b45309;">1234</span>)
+            </span>
+            <span style="font-size: 10px; color: #a16207; margin-top: 4px; display: block;">
+              پیامک به شماره <span id="display-otp-mobile" style="font-family: monospace; font-weight: 700;"></span> ارسال گردید.
+            </span>
+          </div>
+
+          <div>
+            <label style="font-size: 12px; font-weight: 800; color: #1e293b; display: block; margin-bottom: 6px;">
+              کد ۴ رقمی تایید پیامکی:
+            </label>
+            <input id="login-otp-input" type="text" maxlength="6" class="form-input" placeholder="1234" value="1234" style="font-family: monospace; font-size: 18px; text-align: center; letter-spacing: 4px; font-weight: 900; color: #4338ca;">
+          </div>
+
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-success" style="flex: 2; padding: 12px; font-size: 13px; font-weight: 800; justify-content: center;" onclick="verifyLoginOtpAction()">
+              <span>✅</span>
+              <span>تایید و ورود به سامانه</span>
+            </button>
+            <button class="btn btn-secondary" style="flex: 1; padding: 12px; font-size: 11px; justify-content: center;" onclick="backToLoginStep1()">
+              <span>ویرایش مشخصات</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- 2. MAIN DASHBOARD CONTAINER (Protected - After Login)    -->
+    <!-- ======================================================== -->
+    <div id="app-dashboard-container" style="display:none; flex-direction:column; min-height:100vh;">
+
+    <!-- Top Universal Header -->
+    <header class="top-header">
+      
+      <!-- Current User Profile Info -->
+      <div class="user-profile-badge">
+        <div class="avatar-wrapper" onclick="openAvatarModal()" title="کلیک برای تغییر عکس">
+          <img id="header-avatar" class="avatar-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" alt="Avatar">
+          <span class="online-dot" title="آنلاین"></span>
+          <span id="header-role-badge" class="role-badge badge-admin">مدیر ارشد</span>
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+            <span id="header-name">آقای مهدی زرگران</span>
+            <span id="header-coins-badge" style="display:none; font-size: 11px; background: rgba(30,27,75,0.7); color: #fde047; padding: 2px 8px; border-radius: 9999px;">
+              🪙 <span id="header-coins">0</span> سکه همیاری
+            </span>
+          </div>
+          <div id="header-subtitle" style="font-size: 11px; color: #e0e7ff;">مدیر و ادمین ارشد کل سامانه ● آنلاین</div>
+        </div>
+      </div>
+
+      <!-- Header Action Controls -->
+      <div class="header-actions">
+        
+        <!-- Logout Button -->
+        <button class="btn btn-logout" onclick="handleLogout()" style="background: rgba(239, 68, 68, 0.25); border: 1px solid #f87171; color: #ffffff; font-weight: 700; font-size: 11px; padding: 6px 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <span>🚪</span>
+          <span>خروج از حساب</span>
+        </button>
+
+        <!-- Role Quick Switcher (ONLY FOR ADMIN) -->
+        <span id="role-select-wrapper" style="display: none;">
+          <select id="role-select" class="role-select" onchange="handleRoleSwitch(this.value)">
+          <option value="u6" selected>مدیر و ادمین ارشد: آقای مهدی زرگران</option>
+          <option value="u5">مدیر ارشد: آقای ناصر منتظری</option>
+          <option value="u4_admin">ادمین سامانه: خانم نصیبه هاشمی</option>
+          <option value="u4_coach">مربی کارورزی: خانم نصیبه هاشمی</option>
+          <option value="u3">👨‍🏫 استاد کارورزی در فروشگاه ذهن برتر: آقای رضا شیرازیان</option>
+          <option value="u1">نوجوان: شهاب زرگران (۱۰ ساله)</option>
+          <option value="u2">نوجوان: نوید شاهزیدی (۱۱ ساله)</option>
+        </select>
+
+        <!-- SOS Button (for teens) -->
+        <button id="btn-sos" class="btn btn-sos" style="display: none;" onclick="openSosModal()">
+          <span>🆘</span>
+          <span>حمایت فوری</span>
+        </button>
+
+        <!-- Alarm Test -->
+        <button class="btn btn-alarm" onclick="triggerAlarmTest()" title="تست آلارم ۵ دقیقه‌ای">
+          <span>⏰</span>
+          <span>تست آلارم ۵ دقیقه‌ای</span>
+        </button>
+
+      </div>
+
+    </header>
+
+    <!-- Main Dynamic Body -->
+    <main class="main-content">
+
+      <!-- Humanistic Welcome Banner -->
+      <div class="welcome-card">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 28px;">🌱</span>
+          <div>
+            <h2 id="welcome-title" style="font-size: 14px; font-weight: 800; color: #1e293b;">
+              سلام جناب آقای مهدی زرگران؛ به سامانه مدیریت کارورزی خوش آمدید!
+            </h2>
+            <p id="welcome-sub" style="font-size: 11px; color: #64748b; margin-top: 2px;">
+              فروشگاه کتاب، اسباب‌بازی و هدایای ذهن برتر آماده پذیرش و رشد تجربی نوجوانان است.
+            </p>
+          </div>
+        </div>
+        <div>
+          <span style="font-size: 11px; font-weight: 700; color: #4338ca; background: #fff; padding: 4px 10px; border-radius: 10px; border: 1px solid #e2e8f0;">
+            سامانه انسان‌گرا و مشارکتی
+          </span>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs Bar -->
+      <nav class="nav-tabs">
+        <button id="tab-btn-admin" class="tab-item active" onclick="switchMainTab('admin')">
+          <span>⚙️</span>
+          <span>پنل مدیریت کل (ادمین)</span>
+        </button>
+        <button id="tab-btn-cinema" class="tab-item" onclick="switchMainTab('cinema')">
+          <span>🎬</span>
+          <span>گیشه صندلی‌ها (تقویم یک‌ماهه)</span>
+        </button>
+        <button id="tab-btn-report" class="tab-item" onclick="switchMainTab('report')">
+          <span>📝</span>
+          <span>ایستگاه ثبت تجربه و گزارش</span>
+        </button>
+        <button id="tab-btn-chat" class="tab-item" onclick="switchMainTab('chat')">
+          <span>💬</span>
+          <span>گفت‌وگو با مربی و استاد</span>
+        </button>
+        <button id="tab-btn-games" class="tab-item" onclick="switchMainTab('games')">
+          <span>🎮</span>
+          <span>اتاق بازی، چالش و افتخارات</span>
+        </button>
+      </nav>
+
+      <!-- 🎧 AUDIO & COLORFUL PDF GUIDE CARD -->
+      <div class="card" style="background: linear-gradient(135deg, #eef2ff, #f0fdf4); border: 2px solid #c7d2fe;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 24px;">🎧</span>
+            <div>
+              <div style="font-weight: 800; font-size: 13px; color: #312e81;">راهنمای صوتی و دفترچه رنگی راهنما</div>
+              <div style="font-size: 11px; color: #64748b;">صدای مهربان ویژه راهنمایی گام‌به‌گام کارورزان</div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button id="btn-play-voice" class="btn btn-primary" onclick="toggleAudioGuide()">
+              <span>▶️</span>
+              <span>پخش صدای راهنما</span>
+            </button>
+            <button class="btn btn-alarm" onclick="openPdfModal()">
+              <span>📄</span>
+              <span>دفترچه رنگی و PDF</span>
+            </button>
+          </div>
+        </div>
+        <div style="background: rgba(255,255,255,0.85); padding: 10px 12px; border-radius: 12px; font-size: 11px; color: #334155; line-height: 1.6;">
+          <strong>متن پیام صوتی راهنما:</strong>
+          <span id="voice-guide-text">
+            «سلام عزیزم؛ اگر می‌خواهی با مربی خوبت خانم نصیبه هاشمی در ارتباط باشی وارد بخش گفت‌وگو شو... و اگر می‌خواهی با استاد رضا شیرازیان در ارتباط باشی یا صندلی ۲ ساعته‌ات را انتخاب کنی، از جدول تقویم روز و ساعت دلخواهت را لمس کن. ما همیشه کنارت هستیم!»
+          </span>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 1: ADMIN PANEL (MEHDI ZARGARAN)            -->
+      <!-- ============================================== -->
+      <section id="panel-admin" class="tab-panel active">
+        
+        <!-- Live Public Link & Invitation Generator Card -->
+        <div class="card" style="background: linear-gradient(135deg, #faf5ff, #eef2ff); border: 2px solid #c084fc;">
+          <div style="border-bottom: 1px solid #e9d5ff; padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 24px;">📲</span>
+              <div>
+                <h3 style="font-weight: 800; font-size: 14px; color: #581c87;">ارسال دعوت‌نامه رسمی و لینک ورود در ایتا، بله، تلگرام و واتساپ</h3>
+                <p style="font-size: 11px; color: #64748b;">پیام‌های آماده با لینک اینترنتی سراسری (بدون نیاز به وای‌فای)</p>
+              </div>
+            </div>
+            <span style="font-size: 11px; font-weight: 700; background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 10px;">
+              ● لینک سراسری فعال است
+            </span>
+          </div>
+
+          <!-- URL Input -->
+          <div>
+            <label style="font-size: 11px; font-weight: 700; color: #374151; display: block; margin-bottom: 4px;">
+              آدرس اینترنتی مستقیم سامانه (جهت باز شدن با هر اینترنت و گوشی):
+            </label>
+            <input id="public-url-input" type="text" class="form-input" style="font-family: monospace; font-weight: 700; direction: ltr; text-align: left; color: #4338ca;" value="https://44bcb5556e9dac.lhr.life">
+          </div>
+
+          <!-- 6 Quick Copy Buttons -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px;">
+            <button class="btn btn-secondary" style="border: 1px solid #cbd5e1; justify-content: flex-start;" onclick="copyInviteMessage('shirazian')">
+              <span>👨‍🏫</span>
+              <span>پیام استاد رضا شیرازیان</span>
+            </button>
+            <button class="btn btn-secondary" style="border: 1px solid #cbd5e1; justify-content: flex-start;" onclick="copyInviteMessage('hashemi')">
+              <span>🧭</span>
+              <span>پیام خانم نصیبه هاشمی</span>
+            </button>
+            <button class="btn btn-secondary" style="border: 1px solid #cbd5e1; justify-content: flex-start;" onclick="copyInviteMessage('montazeri')">
+              <span>⚙️</span>
+              <span>پیام آقای ناصر منتظری</span>
+            </button>
+            <button class="btn btn-secondary" style="border: 1px solid #cbd5e1; justify-content: flex-start;" onclick="copyInviteMessage('shahab')">
+              <span>👦</span>
+              <span>پیام شهاب زرگران</span>
+            </button>
+            <button class="btn btn-secondary" style="border: 1px solid #cbd5e1; justify-content: flex-start;" onclick="copyInviteMessage('navid')">
+              <span>👦</span>
+              <span>پیام نوید شاهزیدی</span>
+            </button>
+            <button class="btn btn-primary" style="justify-content: flex-start;" onclick="copyInviteMessage('general')">
+              <span>🌟</span>
+              <span>پیام عمومی همه اعضا و اولیا</span>
+            </button>
+          </div>
+
+          <!-- Download Comprehensive User Handbook Button -->
+          <div style="border-top: 1px solid #e9d5ff; padding-top: 10px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
+            <button class="btn btn-success" onclick="downloadComprehensiveHandbook()">
+              <span>📥</span>
+              <span>دانلود فایل راهنمای جامع کاربران (جهت ارسال در ایتا و بله)</span>
+            </button>
+            <span style="font-size: 11px; color: #6b21a8;">
+              💡 نیازی به ارسال هیچ فایل اجرایی دیگری نیست؛ فقط ارسال لینک + فایل راهنما کافی است!
+            </span>
+          </div>
+
+          <div id="copy-feedback-box" style="display: none; padding: 10px; background: #dcfce7; border: 1px solid #86efac; border-radius: 10px; font-size: 11px; font-weight: 700; color: #14532d; text-align: center;">
+            ✓ متن دعوت‌نامه با موفقیت کپی شد! می‌توانید مستقیماً در ایتا، بله، تلگرام یا واتساپ ارسال فرمایید.
+          </div>
+        </div>
+
+        <!-- Users Table Card -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h3 style="font-weight: 800; font-size: 13px; color: #1e293b;">فهرست اعضا و اطلاعات ورود (۸ رقم بدون اسلش):</h3>
+              <p style="font-size: 11px; color: #64748b;">مشخصات رسمی کاربران فعال سامانه</p>
+            </div>
+            <button class="btn btn-primary" onclick="openAddTeenModal()">
+              <span>➕</span>
+              <span>افزودن کارورز جدید</span>
+            </button>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: right;">
+              <thead>
+                <tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1; color: #475569;">
+                  <th style="padding: 10px;">کاربر</th>
+                  <th style="padding: 10px;">نقش</th>
+                  <th style="padding: 10px;">کد کاربری (تولد بدون اسلش)</th>
+                  <th style="padding: 10px;">رمز عبور (موبایل)</th>
+                  <th style="padding: 10px; text-align: center;">عملیات</th>
+                </tr>
+              </thead>
+              <tbody id="users-table-body">
+                <!-- Injected via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 2: CINEMA SEATS (1-MONTH 1-SEAT CALENDAR)  -->
+      <!-- ============================================== -->
+      <section id="panel-cinema" class="tab-panel">
+        
+        <div class="card">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
+            <div>
+              <h3 style="font-weight: 800; font-size: 14px; color: #1e293b;">🏪 فروشگاه کتاب، اسباب‌بازی و هدایای ذهن برتر</h3>
+              <p style="font-size: 11px; color: #64748b;">استاد و مربی کارورزی در فروشگاه ذهن برتر: جناب آقای رضا شیرازیان | <strong>ظرفیت: ۱ صندلی در هر بازه ۲ ساعته</strong></p>
+            </div>
+            <!-- 4 Weeks Selector -->
+            <div id="weeks-selector" class="week-buttons">
+              <button class="week-btn active" onclick="switchWeek(1)">هفته اول (۱۴ تا ۲۰ آبان)</button>
+              <button class="week-btn" onclick="switchWeek(2)">هفته دوم (۲۱ تا ۲۷ آبان)</button>
+              <button class="week-btn" onclick="switchWeek(3)">هفته سوم (۲۸ آبان تا ۴ آذر)</button>
+              <button class="week-btn" onclick="switchWeek(4)">هفته چهارم (۵ تا ۱۱ آذر)</button>
+            </div>
+          </div>
+
+          <!-- 7 Days Grid -->
+          <div style="border-top: 1px solid #e2e8f0; padding-top: 10px;">
+            <div style="font-size: 11px; font-weight: 700; color: #475569; margin-bottom: 6px;">انتخاب روز کاری (۷ روز هفته):</div>
+            <div id="days-grid" class="days-grid">
+              <!-- Injected by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Store Presence Banner -->
+          <div class="store-presence-banner">
+            <div style="font-weight: 800; font-size: 13px;">🛒 پیشخوان و صندوق فروشگاه - جایگاه حضور استاد رضا شیرازیان در فروشگاه ذهن برتر</div>
+            <div id="presence-text" style="font-size: 11px; margin-top: 2px;">ساعت حضور اعلامی استاد در این روز: ۹ الی ۱۲ و ۱۶ الی ۲۱</div>
+          </div>
+
+          <!-- 5 Single-Seat Slots for the day -->
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: #334155; margin-bottom: 8px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px;">
+              <span>صندلی‌های تک‌نفره کارورزی (۵ بازه ۲ ساعته در طول روز):</span>
+              <span style="color: #4338ca;">هر شیفت فقط ۱ ظرفیت</span>
+            </div>
+
+            <div id="seats-container" class="seats-grid">
+              <!-- Injected by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Legend -->
+          <div class="legend-row">
+            <div class="legend-item"><span class="legend-box" style="background:#fff;"></span><span>سفید: خالی (۱ صندلی)</span></div>
+            <div class="legend-item"><span class="legend-box" style="background:#d1fae5; border-color:#10b981;"></span><span>سبز: انتخاب شما</span></div>
+            <div class="legend-item"><span class="legend-box" style="background:#fff1f2; border-color:#f43f5e;"></span><span>قرمز: رزرو قطعی</span></div>
+            <div class="legend-item"><span class="legend-box" style="background:#ffedd5; border-color:#fb923c;"></span><span>نارنجی هاشوردار: ساعت ناقص (تایید ادمین/استاد)</span></div>
+          </div>
+
+          <!-- Action bar -->
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; border-top: 1px solid #e2e8f0; padding-top: 10px;">
+            <div id="booking-status-text" style="font-size: 11px; color: #64748b;">
+              لطفاً یکی از صندلی‌های سفید خالی را برای رزرو لمس کنید.
+            </div>
+            <button id="btn-confirm-seat" class="btn btn-primary" onclick="confirmSelectedSeat()">
+              <span>✅</span>
+              <span>ثبت نهایی صندلی و تنظیم آلارم ۱ ساعت قبل</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 3: MULTIMEDIA REPORT STATION               -->
+      <!-- ============================================== -->
+      <section id="panel-report" class="tab-panel">
+        <div class="card">
+          <div style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h3 style="font-weight: 800; font-size: 14px; color: #1e293b;">📝 ایستگاه ثبت تجربه و گزارش کارورزی</h3>
+              <p style="font-size: 11px; color: #64748b;">تجربه کار در فروشگاه ذهن برتر را ثبت کن!</p>
+            </div>
+            <span style="font-size: 11px; font-weight: 700; background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 10px;">
+              شیفت انتخابی: شنبه ۱۶ الی ۱۸
+            </span>
+          </div>
+
+          <div>
+            <label style="font-size: 11px; font-weight: 700; display: block; margin-bottom: 4px;">۱. گزارش متنی یا تایپی:</label>
+            <textarea id="report-text-input" rows="3" class="form-input" placeholder="امروز با راهنمایی استاد رضا شیرازیان، قفسه کتاب‌ها و بازی‌های فکری را چیدیم..."></textarea>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-weight: 700; font-size: 11px;">۲. گزارش صوتی (حداکثر ۵ دقیقه):</div>
+              <div id="audio-timer-label" style="font-size: 10px; color: #64748b;">00:00 / 05:00</div>
+            </div>
+            <button id="btn-toggle-audio" class="btn btn-success" onclick="toggleAudioRecording()">
+              <span>🎙️</span>
+              <span id="audio-record-btn-text">لمس کن و صحبت کن</span>
+            </button>
+          </div>
+
+          <div>
+            <label style="font-size: 11px; font-weight: 700; display: block; margin-bottom: 4px;">۳. فیلم کوتاه ۱۵ ثانیه‌ای یا عکس کارورزی:</label>
+            <button class="btn btn-primary" onclick="alert('ویدیوی ۱۵ ثانیه‌ای ثبت و به طور خودکار به حجم ۳.۸ مگابایت (زیر ۱۰ مگابایت) فشرده‌سازی شد.')">
+              <span>🎥</span>
+              <span>ضبط ویدیوی ۱۵ ثانیه‌ای (فشرده زیر ۱۰ مگابایت)</span>
+            </button>
+          </div>
+
+          <div>
+            <label style="font-size: 11px; font-weight: 700; color: #0369a1; display: block; margin-bottom: 4px;">💬 سوال یا ابهام از مربی خوبت خانم نصیبه هاشمی:</label>
+            <input id="report-question-input" type="text" class="form-input" style="background: #f0f9ff; border-color: #bae6fd;" placeholder="خانم هاشمی عزیز، اگر مشتری کتابی خواست که در قفسه نبود چی بگم؟">
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; border-top: 1px solid #e2e8f0; padding-top: 10px;">
+            <button class="btn btn-success" style="font-size: 13px; padding: 10px 20px;" onclick="submitReportAction()">
+              <span>🚀</span>
+              <span>ارسال نهایی گزارش برای استاد شیرازیان و خانم هاشمی (+۱۵ سکه)</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 4: CHAT WITH COACH & MENTOR                -->
+      <!-- ============================================== -->
+      <section id="panel-chat" class="tab-panel">
+        <div class="card">
+          <div style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #38bdf8;">
+            <div>
+              <h3 style="font-weight: 800; font-size: 13px; color: #1e293b;">گفت‌وگو با خانم نصیبه هاشمی (مربی کارورزی) و آقای رضا شیرازیان (استاد کارورزی در فروشگاه ذهن برتر)</h3>
+              <p style="font-size: 11px; color: #10b981;">پاسخگوی سوالات و همراه مهربان شما ● آنلاین</p>
+            </div>
+          </div>
+
+          <!-- Messages Stream -->
+          <div id="chat-messages-container" style="height: 260px; overflow-y: auto; background: #f8fafc; border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 10px;">
+            <!-- Injected by JavaScript -->
+          </div>
+
+          <div style="display: flex; gap: 8px;">
+            <input id="chat-input" type="text" class="form-input" style="flex: 1;" placeholder="پیام یا سوالت رو اینجا بنویس..." onkeyup="if(event.key==='Enter') sendChatMessageAction()">
+            <button class="btn btn-primary" onclick="sendChatMessageAction()">
+              <span>ارسال</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 5: COMPLETE & WORKING GAMES ROOM (3 GAMES) -->
+      <!-- ============================================== -->
+      <section id="panel-games" class="tab-panel">
+        
+        <!-- Game Selector Bar -->
+        <div class="card" style="background: linear-gradient(135deg, #eef2ff, #fdf4ff); border: 2px solid #818cf8;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <button id="btn-game-sorter" class="btn btn-primary" onclick="switchMiniGame('sorter')">
+                <span>📚</span>
+                <span>بازی اول: چیدمان قفسه‌ها</span>
+              </button>
+              <button id="btn-game-cashier" class="btn btn-secondary" onclick="switchMiniGame('cashier')">
+                <span>🧮</span>
+                <span>بازی دوم: حسابدار تیزهوش</span>
+              </button>
+              <button id="btn-game-memory" class="btn btn-secondary" onclick="switchMiniGame('memory')">
+                <span>🃏</span>
+                <span>بازی سوم: حافظه کادویی‌ها</span>
+              </button>
+            </div>
+
+            <div style="font-size: 12px; font-weight: 800; background: #fff; padding: 6px 12px; border-radius: 12px; border: 1px solid #c7d2fe; color: #4338ca;">
+              🪙 سکه‌های شما: <span id="game-coins-counter" style="color: #b45309; font-size: 14px;">135</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- GAME 1: BOOKSHELF SORTER -->
+        <div id="subgame-sorter" class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">
+            <div>
+              <h4 style="font-weight: 800; font-size: 13px; color: #1e293b;">📚 بازی اول: مرتب‌سازی قفسه‌های فروشگاه ذهن برتر</h4>
+              <p style="font-size: 11px; color: #64748b;">کالای نمایش داده شده را در قفسه مربوط به خود قرار بده!</p>
+            </div>
+            <span style="font-size: 11px; font-weight: 700; background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 10px;">
+              امتیاز: <span id="sorter-score">0</span>
+            </span>
+          </div>
+
+          <!-- Item Display -->
+          <div style="background: linear-gradient(135deg, #eef2ff, #f8fafc); border: 2px solid #818cf8; border-radius: 18px; padding: 20px; text-align: center; max-width: 340px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div id="sorter-icon" style="font-size: 48px;">📖</div>
+            <div id="sorter-title" style="font-weight: 800; font-size: 14px; color: #1e293b;">کتاب داستان شاهنامه فردوسی</div>
+            <div style="font-size: 11px; color: #4338ca; font-weight: 700;">این کالا باید در کدام قفسه قرار گیرد؟</div>
+          </div>
+
+          <!-- 4 Shelves -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+            <button class="game-choice-btn" onclick="handleSorterPick('books')">
+              <span style="font-size: 24px;">📚</span>
+              <span>قفسه کتاب‌ها</span>
+            </button>
+            <button class="game-choice-btn" onclick="handleSorterPick('toys')">
+              <span style="font-size: 24px;">🧸</span>
+              <span>قفسه اسباب‌بازی</span>
+            </button>
+            <button class="game-choice-btn" onclick="handleSorterPick('gifts')">
+              <span style="font-size: 24px;">🎁</span>
+              <span>قفسه کادویی</span>
+            </button>
+            <button class="game-choice-btn" onclick="handleSorterPick('stationery')">
+              <span style="font-size: 24px;">✏️</span>
+              <span>لوازم‌التحریر</span>
+            </button>
+          </div>
+
+          <div id="sorter-feedback" style="text-align: center; font-size: 11px; font-weight: 800; min-height: 20px;"></div>
+        </div>
+
+        <!-- GAME 2: SMART CASHIER -->
+        <div id="subgame-cashier" class="card" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">
+            <div>
+              <h4 style="font-weight: 800; font-size: 13px; color: #1e293b;">🧮 بازی دوم: حسابدار تیزهوش فروشگاه</h4>
+              <p style="font-size: 11px; color: #64748b;">محاسبه سریع جمع خرید و برگرداندن باقیمانده پول مشتری</p>
+            </div>
+            <span style="font-size: 11px; font-weight: 700; background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 10px;">
+              امتیاز: <span id="cashier-score">0</span>
+            </span>
+          </div>
+
+          <!-- Scenario Box -->
+          <div style="background: #f0fdf4; border: 2px solid #86efac; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-weight: 800; font-size: 12px; color: #166534;">🛒 سناریوی خرید مشتری:</div>
+            <p id="cashier-story" style="font-size: 12px; color: #1e293b;">
+              مشتری ۲ جلد دفتر نقاشی (۴۰ هزار تومان) و ۱ بسته ماژیک (۶۰ هزار تومان) خریده است. جمع خرید: ۱۰۰ هزار تومان. مشتری یک اسکناس ۲۰۰ هزار تومانی می‌دهد.
+            </p>
+            <div id="cashier-question" style="font-weight: 800; font-size: 12px; color: #15803d; margin-top: 4px;">
+              ❓ سوال: باقیمانده پول مشتری چقدر است؟
+            </div>
+          </div>
+
+          <!-- Options -->
+          <div id="cashier-options-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+            <!-- Injected by JavaScript -->
+          </div>
+
+          <div id="cashier-feedback" style="text-align: center; font-size: 11px; font-weight: 800; min-height: 20px;"></div>
+        </div>
+
+        <!-- GAME 3: MEMORY MATCHING CARDS -->
+        <div id="subgame-memory" class="card" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">
+            <div>
+              <h4 style="font-weight: 800; font-size: 13px; color: #1e293b;">🃏 بازی سوم: کاشف حافظه کادویی‌ها</h4>
+              <p style="font-size: 11px; color: #64748b;">جفت‌های هم‌شکل از وسایل فروشگاه را پیدا کن!</p>
+            </div>
+            <button class="btn btn-secondary" onclick="resetMemoryGameAction()">
+              <span>🔄</span>
+              <span>بر زدن کارت‌ها</span>
+            </button>
+          </div>
+
+          <div id="memory-cards-grid" class="memory-grid">
+            <!-- 16 cards injected by JavaScript -->
+          </div>
+
+          <div id="memory-win-box" style="display: none; padding: 12px; background: #d1fae5; border: 2px solid #34d399; border-radius: 14px; text-align: center; font-size: 12px; font-weight: 800; color: #065f46;">
+            🎉 آفرین قهرمان! تمام ۸ جفت کارت را با موفقیت پیدا کردی (+۱۵ سکه همیاری جایزه گرفتی).
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+      <div style="text-align: center; font-size: 11px; color: #64748b; padding: 8px 12px; background: #f1f5f9; border-top: 1px solid #e2e8f0;">
+        🔍 <strong>ابزار بازرسی سریع المان:</strong> برای کپی مشخصات، موقعیت و کد هر بخش، کلید <code>Alt</code> را نگه داشته و روی آن کلیک چپ کنید.
+      </div>
+    </div> <!-- /#app-dashboard-container -->
+
+    <!-- ============================================== -->
+    <!-- MODALS                                         -->
+    <!-- ============================================== -->
+
+    <!-- 1. LOGIN & SELF-REGISTRATION MODAL -->
+    <div id="modal-login" class="modal-overlay">
+      <div class="modal-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 24px;">🔐</span>
+            <div>
+              <h3 style="font-weight: 800; font-size: 14px;">ورود رسمی به سامانه کارورزی</h3>
+              <p style="font-size: 10px; color: #64748b;">کد ۸ رقمی تولد بدون اسلش + شماره موبایل</p>
+            </div>
+          </div>
+          <button style="border:none; background:none; font-size:18px; cursor:pointer;" onclick="closeLoginModal()">✕</button>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">کد کاربری (تاریخ تولد شمسی ۸ رقمی بدون اسلش):</label>
+            <input id="login-birthdate" type="text" maxlength="8" class="form-input" style="font-family: monospace; font-size: 14px; text-align: center; font-weight: 700; color: #4338ca;" placeholder="مثال: 13541229 یا 13920514" value="13541229">
+            <span style="font-size: 10px; color: #94a3b8; margin-top: 2px; display: block;">اگر اسلش هم تایپ کنید، به طور خودکار حذف می‌شود.</span>
+          </div>
+
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">رمز عبور (شماره موبایل جهت دریافت OTP):</label>
+            <input id="login-mobile" type="text" class="form-input" style="font-family: monospace; font-size: 14px; text-align: center; font-weight: 700;" placeholder="09133544489" value="09133544489">
+          </div>
+
+          <button class="btn btn-primary" style="padding: 10px;" onclick="handleOfficialLogin()">
+            دریافت کد تایید و ورود به حساب
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. ADD TEEN MODAL -->
+    <div id="modal-add-teen" class="modal-overlay">
+      <div class="modal-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">
+          <h3 style="font-weight: 800; font-size: 14px;">➕ افزودن کارورز نوجوان جدید</h3>
+          <button style="border:none; background:none; font-size:18px; cursor:pointer;" onclick="closeAddTeenModal()">✕</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px;">
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">نام و نام خانوادگی:</label>
+            <input id="new-teen-name" type="text" class="form-input" placeholder="مثال: پارسا صادقی">
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">کد کاربری (تاریخ تولد ۸ رقمی بدون اسلش):</label>
+            <input id="new-teen-birth" type="text" maxlength="8" class="form-input" placeholder="13910515">
+          </div>
+          <div>
+            <label style="font-weight: 700; display: block; margin-bottom: 4px;">شماره موبایل:</label>
+            <input id="new-teen-phone" type="text" class="form-input" placeholder="0913xxxxxxx">
+          </div>
+          <button class="btn btn-success" style="padding: 10px;" onclick="saveNewTeenAction()">
+            ثبت کارورز و صدور ۱۰۰ سکه هدیه
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. PROFILE AVATAR MODAL -->
+    <div id="modal-avatar" class="modal-overlay">
+      <div class="modal-card" style="text-align: center;">
+        <h3 style="font-weight: 800; font-size: 14px;">ویرایش عکس پروفایل واقعی</h3>
+        <p style="font-size: 11px; color: #64748b;">تصویر واقعی شما در تمام صندلی‌ها و پیام‌ها نمایش داده می‌شود.</p>
+        <div style="margin: 10px auto;">
+          <img id="avatar-preview-img" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid #fde047; object-fit: cover;" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80">
+        </div>
+        <input type="file" id="avatar-file-input" accept="image/*" style="font-size: 11px; margin: 0 auto;" onchange="handleAvatarFile(event)">
+        <div style="display: flex; gap: 8px; justify-content: center; margin-top: 10px;">
+          <button class="btn btn-primary" onclick="closeAvatarModal()">تایید و ذخیره عکس</button>
+          <button class="btn btn-secondary" onclick="closeAvatarModal()">انصراف</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. COLORFUL PDF HANDBOOK MODAL -->
+    <div id="modal-pdf" class="modal-overlay">
+      <div id="printable-pdf-guide" class="modal-card" style="max-width: 600px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 26px;">🎨</span>
+            <h3 style="font-weight: 800; font-size: 14px;">دفترچه رنگی و مصور کارورزی</h3>
+          </div>
+          <button style="border:none; background:none; font-size:18px; cursor:pointer;" onclick="closePdfModal()">✕</button>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 11px;">
+          <div style="background: #fef3c7; border: 1px solid #fde68a; padding: 10px; border-radius: 12px;">
+            <div style="font-weight: 800; font-size: 12px; margin-bottom: 4px;">🎬 گام اول: انتخاب صندلی</div>
+            <p>در تقویم یک‌ماهه، یکی از ۵ صندلی خالی (سفید) را لمس کن تا سبز شود، سپس دکمه تایید نهایی را بزن.</p>
+          </div>
+          <div style="background: #d1fae5; border: 1px solid #a7f3d0; padding: 10px; border-radius: 12px;">
+            <div style="font-weight: 800; font-size: 12px; margin-bottom: 4px;">⏰ گام دوم: آلارم خوش‌قولی</div>
+            <p>۱ ساعت قبل از شروع کارورزی، آلارم هشدار می‌دهد. دکمه «دیدم» را بزن تا ۵ سکه بگیری!</p>
+          </div>
+          <div style="background: #e0f2fe; border: 1px solid #bae6fd; padding: 10px; border-radius: 12px;">
+            <div style="font-weight: 800; font-size: 12px; margin-bottom: 4px;">🏪 گام سوم: حضور در فروشگاه</div>
+            <p>کنار استاد رضا شیرازیان در فروشگاه ذهن برتر مهارت‌های چیدمان قفسه، برخورد با مشتری و کادوسازی را یاد بگیر.</p>
+          </div>
+          <div style="background: #f3e8ff; border: 1px solid #e9d5ff; padding: 10px; border-radius: 12px;">
+            <div style="font-weight: 800; font-size: 12px; margin-bottom: 4px;">🎙️ گام چهارم: ثبت تجربه</div>
+            <p>صدایت را ضبط کن یا متنت را بنویس و برای مربی مهربانت خانم نصیبه هاشمی ارسال کن.</p>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; border-top: 1px solid #e2e8f0; padding-top: 10px;">
+          <button class="btn btn-primary" onclick="window.print()">
+            <span>🖨️</span>
+            <span>چاپ و ذخیره مستقیم PDF رنگی</span>
+          </button>
+          <button class="btn btn-secondary" onclick="closePdfModal()">بستن</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. ALARM MODAL -->
+    <div id="modal-alarm" class="modal-overlay">
+      <div class="modal-card" style="text-align: center; border-color: #f59e0b;">
+        <div style="font-size: 48px;">⏰</div>
+        <h3 style="font-weight: 800; font-size: 16px;">هشدار شروع کارورزی!</h3>
+        <p style="font-size: 12px; color: #475569;">
+          ساعت کارآموزی شما در فروشگاه ذهن برتر ۱ ساعت دیگر شروع می‌شود.
+        </p>
+        <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 8px; border-radius: 10px; font-size: 11px; color: #b45309; font-weight: 700;">
+          تکرار بعدی در صورت عدم تایید: <span id="alarm-countdown">300</span> ثانیه
+        </div>
+        <button class="btn btn-success" style="padding: 12px; font-size: 13px;" onclick="acknowledgeAlarmAction()">
+          ✅ تایید / پیام را دیدم و آماده می‌شوم
+        </button>
+      </div>
+    </div>
+
+    <!-- 6. SOS MODAL -->
+    <div id="modal-sos" class="modal-overlay">
+      <div class="modal-card" style="text-align: center; border-color: #f43f5e;">
+        <div style="font-size: 40px;">❤️</div>
+        <h3 style="font-weight: 800; font-size: 15px;">حمایت فوری مربی</h3>
+        <p style="font-size: 11px; color: #475569;">
+          خانم نصیبه هاشمی و مدیران سامانه بلافاصله پیام شما را دریافت کردند و کنارتان هستند.
+        </p>
+        <a href="tel:09129876543" class="btn btn-sos" style="padding: 10px; text-decoration: none;">
+          📞 تماس مستقیم با خانم نصیبه هاشمی
+        </a>
+        <button class="btn btn-secondary" onclick="closeSosModal()">بستن</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 100% PURE, BULLETPROOF, ZERO-DEPENDENCY VANILLA JAVASCRIPT -->
+  <script>
+    // ========================================================
+    // SYSTEM STATE STORE (User-Determined Credentials by OTP)
+    // ========================================================
+    const state = {
+      users: {
+        u6: { id: 'u6', role: 'admin', name: 'آقای مهدی زرگران', title: 'مدیر و ادمین ارشد کل سامانه', mobile: '09133544489', birthdate: '13541229', pin: '1229', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80', online: true },
+        u5: { id: 'u5', role: 'admin', name: 'آقای ناصر منتظری', title: 'مدیر ارشد و ادمین کل سامانه', mobile: '', birthdate: '', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80', online: true },
+        u4_admin: { id: 'u4_admin', role: 'admin', name: 'خانم نصیبه هاشمی', title: 'ادمین نرم‌افزار و مربی', mobile: '', birthdate: '', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80', online: true },
+        u4_coach: { id: 'u4_coach', role: 'coach', name: 'خانم نصیبه هاشمی', title: 'مربی کارورزی و تسهیلگر تربیتی', mobile: '', birthdate: '', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80', online: true },
+        u3: { id: 'u3', role: 'store_owner', name: 'آقای رضا شیرازیان', title: 'استاد و مربی کارورزی در فروشگاه ذهن برتر', storeName: 'فروشگاه ذهن برتر', mobile: '', birthdate: '', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=80', online: true },
+        u1: { id: 'u1', role: 'teen', name: 'شهاب زرگران', title: 'کارورز نوجوان (۱۰ ساله)', mobile: '', birthdate: '', coins: 135, avatar: 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80', online: true },
+        u2: { id: 'u2', role: 'teen', name: 'نوید شاهزیدی', title: 'کارورز نوجوان (۱۱ ساله)', mobile: '', birthdate: '', coins: 110, avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80', online: true }
+      },
+      currentUserId: null, // Strictly null by default: Forces mandatory login screen!
+      activeMainTab: 'admin',
+      activeMiniGame: 'sorter',
+      selectedWeek: 1,
+      selectedDayKey: 'sat_w1',
+      selectedSlotId: null,
+      sorterScore: 0,
+      cashierScore: 0,
+      memoryWon: false,
+      isRecordingAudio: false,
+      audioSeconds: 0,
+      audioInterval: null,
+      alarmActive: false,
+      alarmCountdown: 300,
+      alarmTimer: null,
+      chatMessages: [
+        { from: 'خانم نصیبه هاشمی', role: 'coach', text: 'سلام شهاب جان، در شیفت امروز فروشگاه ذهن برتر با استاد شیرازیان همه چیز خوب پیش رفت؟', time: '16:30' },
+        { from: 'شهاب زرگران', role: 'teen', text: 'سلام خانم هاشمی عزیز، بله عالی بود. استاد شیرازیان نحوه چیدمان قفسه‌ها رو کاملاً یاد دادند.', time: '16:35' }
+      ]
+    };
+
+    // Calendar 1-Month Data (4 Weeks x 7 Days x 5 Single-Seat Slots)
+    const calendarWeeks = [
+      {
+        weekId: 1,
+        title: 'هفته اول (۱۴ تا ۲۰ آبان)',
+        days: [
+          {
+            dayKey: 'sat_w1', name: 'شنبه ۱۴ آبان', presence: '۰۹:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۱:۰۰',
+            slots: [
+              { id: 's1_w1', time: '۰۸:۰۰ تا ۱۰:۰۰', status: 'partial', reason: 'حضور استاد شیرازیان از ساعت ۹ است (۱ ساعت ناقص) - نیاز به تایید ادمین یا استاد' },
+              { id: 's2_w1', time: '۱۰:۰۰ تا ۱۲:۰۰', status: 'available' },
+              { id: 's3_w1', time: '۱۶:۰۰ تا ۱۸:۰۰', status: 'booked', bookedBy: 'شهاب زرگران', avatar: 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80' },
+              { id: 's4_w1', time: '۱۸:۰۰ تا ۲۰:۰۰', status: 'booked', bookedBy: 'نوید شاهزیدی', avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80' },
+              { id: 's5_w1', time: '۲۰:۰۰ تا ۲۲:۰۰', status: 'partial', reason: 'حضور استاد شیرازیان تا ۲۱ است (۱ ساعت ناقص) - نیاز به تایید ادمین یا استاد' }
+            ]
+          },
+          {
+            dayKey: 'sun_w1', name: 'یکشنبه ۱۵ آبان', presence: '۱۶:۰۰ الی ۲۱:۰۰',
+            slots: [
+              { id: 's1_sun', time: '۰۸:۰۰ تا ۱۰:۰۰', status: 'disabled', reason: 'عدم حضور استاد در صبح' },
+              { id: 's2_sun', time: '۱۰:۰۰ تا ۱۲:۰۰', status: 'disabled', reason: 'عدم حضور استاد در صبح' },
+              { id: 's3_sun', time: '۱۶:۰۰ تا ۱۸:۰۰', status: 'available' },
+              { id: 's4_sun', time: '۱۸:۰۰ تا ۲۰:۰۰', status: 'available' },
+              { id: 's5_sun', time: '۲۰:۰۰ تا ۲۲:۰۰', status: 'partial', reason: 'حضور تا ۲۱ است' }
+            ]
+          },
+          {
+            dayKey: 'mon_w1', name: 'دوشنبه ۱۶ آبان', presence: '۰۸:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۰:۰۰',
+            slots: [
+              { id: 's1_mon', time: '۰۸:۰۰ تا ۱۰:۰۰', status: 'available' },
+              { id: 's2_mon', time: '۱۰:۰۰ تا ۱۲:۰۰', status: 'available' },
+              { id: 's3_mon', time: '۱۶:۰۰ تا ۱۸:۰۰', status: 'available' },
+              { id: 's4_mon', time: '۱۸:۰۰ تا ۲۰:۰۰', status: 'available' },
+              { id: 's5_mon', time: '۲۰:۰۰ تا ۲۲:۰۰', status: 'disabled' }
+            ]
+          },
+          {
+            dayKey: 'tue_w1', name: 'سه‌شنبه ۱۷ آبان', presence: '۱۶:۰۰ الی ۲۱:۰۰',
+            slots: [
+              { id: 's1_tue', time: '۰۸:۰۰ تا ۱۰:۰۰', status: 'disabled' },
+              { id: 's2_tue', time: '۱۰:۰۰ تا ۱۲:۰۰', status: 'disabled' },
+              { id: 's3_tue', time: '۱۶:۰۰ تا ۱۸:۰۰', status: 'available' },
+              { id: 's4_tue', time: '۱۸:۰۰ تا ۲۰:۰۰', status: 'available' },
+              { id: 's5_tue', time: '۲۰:۰۰ تا ۲۲:۰۰', status: 'partial' }
+            ]
+          },
+          {
+            dayKey: 'wed_w1', name: 'چهارشنبه ۱۸ آبان', presence: '۰۸:۰۰ الی ۱۲:۰۰ و ۱۶:۰۰ الی ۲۱:۰۰',
+            slots: [
+              { id: 's1_wed', time: '۰۸:۰۰ تا ۱۰:۰۰', status: 'available' },
+              { id: 's2_wed', time: '۱۰:۰۰ تا ۱۲:۰۰', status: 'available' },
+              { id: 's3_wed', time: '۱۶:۰۰ تا ۱۸:۰۰', status: 'available' },
+              { id: 's4_wed', time: '۱۸:۰۰ تا ۲۰:۰۰', status: 'available' },
+              { id: 's5_wed', time: '۲۰:۰۰ تا ۲۲:۰۰', status: 'partial' }
+            ]
+          },
+          {
+            dayKey: 'thu_w1', name: 'پنجشنبه ۱۹ آبان', presence: '۰۹:۰۰ الی ۱۲:۰۰ (صبح)',
+            slots: [
+              { id: 's1_thu', time: '۰۸:۰۰ تا ۱۰:۰۰', status: 'partial' },
+              { id: 's2_thu', time: '۱۰:۰۰ تا ۱۲:۰۰', status: 'available' },
+              { id: 's3_thu', time: '۱۶:۰۰ تا ۱۸:۰۰', status: 'disabled' },
+              { id: 's4_thu', time: '۱۸:۰۰ تا ۲۰:۰۰', status: 'disabled' },
+              { id: 's5_thu', time: '۲۰:۰۰ تا ۲۲:۰۰', status: 'disabled' }
+            ]
+          },
+          {
+            dayKey: 'fri_w1', name: 'جمعه ۲۰ آبان', presence: 'تعطیل هفتگی فروشگاه',
+            slots: [
+              { id: 's1_fri', time: '۰۸:۰۰ تا ۱۰:۰۰', status: 'disabled' },
+              { id: 's2_fri', time: '۱۰:۰۰ تا ۱۲:۰۰', status: 'disabled' },
+              { id: 's3_fri', time: '۱۶:۰۰ تا ۱۸:۰۰', status: 'disabled' },
+              { id: 's4_fri', time: '۱۸:۰۰ تا ۲۰:۰۰', status: 'disabled' },
+              { id: 's5_fri', time: '۲۰:۰۰ تا ۲۲:۰۰', status: 'disabled' }
+            ]
+          }
+        ]
+      }
+    ];
+
+    // Duplicate weeks 2, 3, 4 dynamically
+    for (let w = 2; w <= 4; w++) {
+      const titles = ['', 'هفته اول (۱۴ تا ۲۰ آبان)', 'هفته دوم (۲۱ تا ۲۷ آبان)', 'هفته سوم (۲۸ آبان تا ۴ آذر)', 'هفته چهارم (۵ تا ۱۱ آذر)'];
+      calendarWeeks.push({
+        weekId: w,
+        title: titles[w],
+        days: calendarWeeks[0].days.map(d => ({
+          dayKey: `${d.dayKey.split('_')[0]}_w${w}`,
+          name: `${d.name.split(' ')[0]} (هفته ${w})`,
+          presence: d.presence,
+          slots: d.slots.map(s => ({
+            id: `${s.id}_w${w}`,
+            time: s.time,
+            status: s.status === 'booked' ? 'available' : s.status,
+            reason: s.reason
+          }))
+        }))
+      });
+    }
+
+    // ========================================================
+    // INITIALIZATION & SESSION MANAGEMENT
+    // ========================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlInput = document.getElementById('public-url-input');
+      if (urlInput && window.location.origin) {
+        if (!window.location.origin.includes('localhost') && !window.location.origin.includes('127.0.0.1')) {
+          urlInput.value = window.location.origin;
+        }
+      }
+
+      // Initialize Alt + Left Click Element Inspector
+      initElementInspector();
+
+      // Check session
+      const savedUserId = sessionStorage.getItem('karvarzi_user_id');
+      if (savedUserId && state.users[savedUserId]) {
+        state.currentUserId = savedUserId;
+        showDashboardView();
+      } else {
+        state.currentUserId = null;
+        showLoginView();
+      }
+    });
+
+    // View Switching
+    function showLoginView() {
+      const loginContainer = document.getElementById('app-login-container');
+      const dashboardContainer = document.getElementById('app-dashboard-container');
+      if (loginContainer) loginContainer.style.display = 'block';
+      if (dashboardContainer) dashboardContainer.style.display = 'none';
+      backToLoginStep1();
+    }
+
+    function showDashboardView() {
+      const loginContainer = document.getElementById('app-login-container');
+      const dashboardContainer = document.getElementById('app-dashboard-container');
+      if (loginContainer) loginContainer.style.display = 'none';
+      if (dashboardContainer) dashboardContainer.style.display = 'flex';
+
+      const user = state.users[state.currentUserId];
+      if (user) {
+        if (user.role === 'admin') {
+          switchMainTab('admin');
+        } else if (user.role === 'coach') {
+          switchMainTab('report');
+        } else {
+          switchMainTab('cinema');
+        }
+      }
+
+      renderHeader();
+      renderUsersTable();
+      renderCalendarDays();
+      renderSeats();
+      renderChatMessages();
+      initMemoryGame();
+      renderCashierQuestion();
+    }
+
+    function handleLogout() {
+      sessionStorage.removeItem('karvarzi_user_id');
+      state.currentUserId = null;
+      showLoginView();
+      showToast('🚪 شما با موفقیت از حساب کاربری خارج شدید.', 'info');
+    }
+
+    // ========================================================
+    // LOGIN & OTP WORKFLOW
+    // ========================================================
+    function handleLoginUserSelectChange(val) {
+      const customNameWrap = document.getElementById('login-custom-name-wrapper');
+      const birthInput = document.getElementById('login-birthdate-input');
+      const mobileInput = document.getElementById('login-mobile-input');
+      const infoBox = document.getElementById('login-info-box');
+
+      if (val === 'new_teen') {
+        if (customNameWrap) customNameWrap.style.display = 'block';
+        if (birthInput) birthInput.value = '';
+        if (mobileInput) mobileInput.value = '';
+        if (infoBox) infoBox.innerHTML = 'ℹ️ <strong>کارورز جدید:</strong> لطفاً نام، تاریخ تولد ۸ رقمی شمسی و شماره همراه خود را وارد کنید تا حسابتان با ۱۰۰ سکه هدیه فعال شود.';
+      } else if (val === 'u6') {
+        if (customNameWrap) customNameWrap.style.display = 'none';
+        if (birthInput) birthInput.value = '13541229';
+        if (mobileInput) mobileInput.value = '09133544489';
+        if (infoBox) infoBox.innerHTML = '👑 <strong>مدیر و ادمین ارشد کل:</strong> جناب آقای مهدی زرگران (مشخصات شما در سامانه ثبت قطعی است).';
+      } else if (state.users[val]) {
+        if (customNameWrap) customNameWrap.style.display = 'none';
+        const u = state.users[val];
+        if (birthInput) birthInput.value = u.birthdate || '';
+        if (mobileInput) mobileInput.value = u.mobile || '';
+        if (u.birthdate && u.mobile) {
+          if (infoBox) infoBox.innerHTML = '✅ مشخصات شما قبلاً ثبت گردیده است. جهت ورود، دکمه دریافت کد تایید را بزنید.';
+        } else {
+          if (infoBox) infoBox.innerHTML = 'ℹ️ <strong>ورود برای اولین بار:</strong> تاریخ تولد ۸ رقمی شمسی و شماره موبایل واقعی خود را وارد فرمایید؛ این اطلاعات به عنوان مشخصات دائم شما در سامانه ذخیره خواهد شد.';
+        }
+      }
+    }
+
+    function sendLoginOtpAction() {
+      const userSelect = document.getElementById('login-user-select');
+      const userId = userSelect ? userSelect.value : '';
+      if (!userId) {
+        alert('لطفاً ابتدا نام خود را از فهرست انتخاب فرمایید.');
+        return;
+      }
+
+      let newName = '';
+      if (userId === 'new_teen') {
+        newName = document.getElementById('login-custom-name-input').value.trim();
+        if (!newName) {
+          alert('لطفاً نام و نام‌خانوادگی کارورز جدید را وارد فرمایید.');
+          return;
+        }
+      }
+
+      const birthRaw = document.getElementById('login-birthdate-input').value;
+      const cleanBirth = String(birthRaw || '').replace(/[\/\-\_\s]/g, '');
+      if (!cleanBirth || cleanBirth.length !== 8) {
+        alert('لطفاً تاریخ تولد ۸ رقمی شمسی (بدون اسلش) را وارد فرمایید (مثال: 13541229 یا 13920514).');
+        return;
+      }
+
+      const mobileRaw = document.getElementById('login-mobile-input').value;
+      const cleanMobile = String(mobileRaw || '').replace(/[\-\_\s]/g, '');
+      if (!cleanMobile || cleanMobile.length < 10) {
+        alert('لطفاً شماره تلفن همراه معتبر را وارد فرمایید (مثال: 09133544489).');
+        return;
+      }
+
+      // Call backend API if online
+      fetch('/api/auth/otp/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, birthdate: cleanBirth, mobile: cleanMobile })
+      }).catch(() => null);
+
+      // Display Step 2 OTP
+      document.getElementById('login-step-credentials').style.display = 'none';
+      document.getElementById('login-step-otp').style.display = 'flex';
+      document.getElementById('display-otp-mobile').textContent = cleanMobile;
+      document.getElementById('display-otp-code').textContent = '1234';
+      document.getElementById('login-otp-input').value = '1234';
+      showToast('🔐 کد تایید پیامکی تستی: 1234', 'info');
+    }
+
+    function backToLoginStep1() {
+      const step1 = document.getElementById('login-step-credentials');
+      const step2 = document.getElementById('login-step-otp');
+      if (step1) step1.style.display = 'flex';
+      if (step2) step2.style.display = 'none';
+    }
+
+    function verifyLoginOtpAction() {
+      const userSelect = document.getElementById('login-user-select');
+      let userId = userSelect ? userSelect.value : '';
+      const otp = document.getElementById('login-otp-input').value.trim();
+
+      if (otp !== '1234' && otp !== '5824') {
+        alert('کد تایید پیامکی نامعتبر است (کد تستی سامانه: 1234)');
+        return;
+      }
+
+      const cleanBirth = document.getElementById('login-birthdate-input').value.replace(/[\/\-\_\s]/g, '');
+      const cleanMobile = document.getElementById('login-mobile-input').value.replace(/[\-\_\s]/g, '');
+
+      if (userId === 'new_teen') {
+        const newName = document.getElementById('login-custom-name-input').value.trim() || 'کارورز جدید';
+        userId = 'u' + Date.now();
+        state.users[userId] = {
+          id: userId,
+          role: 'teen',
+          name: newName,
+          title: 'کارورز نوجوان',
+          birthdate: cleanBirth,
+          mobile: cleanMobile,
+          coins: 100,
+          avatar: 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80',
+          online: true
+        };
+      } else if (state.users[userId]) {
+        state.users[userId].birthdate = cleanBirth;
+        state.users[userId].mobile = cleanMobile;
+      }
+
+      // Notify backend API
+      fetch('/api/auth/otp/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, mobile: cleanMobile, birthdate: cleanBirth, otp })
+      }).catch(() => null);
+
+      state.currentUserId = userId;
+      sessionStorage.setItem('karvarzi_user_id', userId);
+
+      showDashboardView();
+      showToast(`🎉 خوش آمدید ${state.users[userId].name} عزیز! ورود با موفقیت انجام شد.`, 'success');
+    }
+
+    // ========================================================
+    // HEADER STATE RENDERER
+    // ========================================================
+    function renderHeader() {
+      if (!state.currentUserId || !state.users[state.currentUserId]) return;
+      const user = state.users[state.currentUserId];
+
+      const avatarEl = document.getElementById('header-avatar');
+      if (avatarEl) avatarEl.src = user.avatar;
+
+      const nameEl = document.getElementById('header-name');
+      if (nameEl) nameEl.textContent = user.name;
+
+      const subEl = document.getElementById('header-subtitle');
+      if (subEl) subEl.textContent = user.title + ' ● آنلاین';
+
+      const badge = document.getElementById('header-role-badge');
+      if (badge) {
+        badge.className = 'role-badge ' + (user.role === 'admin' ? 'badge-admin' : (user.role === 'teen' ? 'badge-teen' : (user.role === 'coach' ? 'badge-coach' : 'badge-owner')));
+        badge.textContent = user.role === 'admin' ? 'مدیر ارشد' : (user.role === 'teen' ? 'کارورز' : (user.role === 'coach' ? 'مربی' : 'استاد'));
+      }
+
+      const coinsBadge = document.getElementById('header-coins-badge');
+      const sosBtn = document.getElementById('btn-sos');
+      if (user.role === 'teen') {
+        if (coinsBadge) coinsBadge.style.display = 'inline-flex';
+        const coinsEl = document.getElementById('header-coins');
+        if (coinsEl) coinsEl.textContent = user.coins || 0;
+        const gameCoinsEl = document.getElementById('game-coins-counter');
+        if (gameCoinsEl) gameCoinsEl.textContent = user.coins || 0;
+        if (sosBtn) sosBtn.style.display = 'inline-flex';
+      } else {
+        if (coinsBadge) coinsBadge.style.display = 'none';
+        if (sosBtn) sosBtn.style.display = 'none';
+      }
+
+      const welcomeTitle = document.getElementById('welcome-title');
+      if (welcomeTitle) welcomeTitle.textContent = `سلام ${user.name} عزیز؛ به سامانه کارورزی فروشگاه ذهن برتر خوش آمدید!`;
+
+      // Role quick switcher & Admin tab strictly visible ONLY to admins
+      const roleSelectWrap = document.getElementById('role-select-wrapper');
+      const tabAdminBtn = document.getElementById('tab-btn-admin');
+      if (user.role === 'admin') {
+        if (roleSelectWrap) roleSelectWrap.style.display = 'inline-block';
+        if (tabAdminBtn) tabAdminBtn.style.display = 'inline-flex';
+        const roleSelect = document.getElementById('role-select');
+        if (roleSelect) roleSelect.value = state.currentUserId;
+      } else {
+        if (roleSelectWrap) roleSelectWrap.style.display = 'none';
+        if (tabAdminBtn) tabAdminBtn.style.display = 'none';
+      }
+    }
+
+    // Role Switch Action (Admin Only)
+    function handleRoleSwitch(newUserId) {
+      state.currentUserId = newUserId;
+      const user = state.users[newUserId];
+      if (user.role === 'admin') {
+        switchMainTab('admin');
+      } else if (user.role === 'coach') {
+        switchMainTab('report');
+      } else {
+        switchMainTab('cinema');
+      }
+      renderHeader();
+    }
+
+    // Main Tab Switching
+    function switchMainTab(tabId) {
+      state.activeMainTab = tabId;
+      const tabButtons = ['admin', 'cinema', 'report', 'chat', 'games'];
+      tabButtons.forEach(t => {
+        const btn = document.getElementById('tab-btn-' + t);
+        const panel = document.getElementById('panel-' + t);
+        if (btn) btn.className = 'tab-item' + (t === tabId ? ' active' : '');
+        if (panel) panel.className = 'tab-panel' + (t === tabId ? ' active' : '');
+      });
+    }
+
+    // ========================================================
+    // CALENDAR & SEAT RESERVATION RENDERERS
+    // ========================================================
+    function switchWeek(weekId) {
+      state.selectedWeek = weekId;
+      const week = calendarWeeks.find(w => w.weekId === weekId);
+      state.selectedDayKey = week.days[0].dayKey;
+      
+      document.querySelectorAll('.week-btn').forEach((btn, idx) => {
+        btn.className = 'week-btn' + (idx + 1 === weekId ? ' active' : '');
+      });
+
+      renderCalendarDays();
+      renderSeats();
+    }
+
+    function renderCalendarDays() {
+      const week = calendarWeeks.find(w => w.weekId === state.selectedWeek);
+      const container = document.getElementById('days-grid');
+      if (!container) return;
+      container.innerHTML = '';
+
+      week.days.forEach(d => {
+        const btn = document.createElement('div');
+        btn.className = 'day-btn' + (d.dayKey === state.selectedDayKey ? ' active' : '');
+        btn.innerHTML = `<div style="font-weight:700;">${d.name.split(' ')[0]}</div><div style="font-size:10px; opacity:0.8;">${d.name.split(' ').slice(1).join(' ')}</div>`;
+        btn.onclick = () => {
+          state.selectedDayKey = d.dayKey;
+          renderCalendarDays();
+          renderSeats();
+        };
+        container.appendChild(btn);
+      });
+
+      const activeDay = week.days.find(d => d.dayKey === state.selectedDayKey) || week.days[0];
+      const presenceText = document.getElementById('presence-text');
+      if (presenceText) presenceText.textContent = 'ساعت حضور اعلامی استاد در این روز: ' + activeDay.presence;
+    }
+
+    function renderSeats() {
+      const week = calendarWeeks.find(w => w.weekId === state.selectedWeek);
+      const day = week.days.find(d => d.dayKey === state.selectedDayKey) || week.days[0];
+      const container = document.getElementById('seats-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      day.slots.forEach((slot, idx) => {
+        const card = document.createElement('div');
+        let cardClass = 'seat-card ' + slot.status;
+        if (state.selectedSlotId === slot.id) cardClass = 'seat-card selected';
+        card.className = cardClass;
+
+        let statusText = '⚪ خالی (لمس برای انتخاب)';
+        let bookedUserHtml = '';
+
+        if (slot.status === 'booked') {
+          statusText = '🔴 رزرو قطعی';
+          bookedUserHtml = `
+            <div style="display:flex; align-items:center; gap:6px; margin-top:6px;">
+              <img src="${slot.avatar || 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80'}" style="width:24px; height:24px; border-radius:50%; object-fit:cover;">
+              <span style="font-weight:800; font-size:11px;">${slot.bookedBy}</span>
+            </div>`;
+        } else if (slot.status === 'partial') {
+          statusText = '⚠️ ساعت ناقص (۱ ساعت)';
+          bookedUserHtml = `<div style="font-size:10px; margin-top:4px;">${slot.reason || 'نیاز به تایید استاد شیرازیان یا ادمین'}</div>`;
+        } else if (slot.status === 'disabled') {
+          statusText = '⛔ عدم حضور استاد (غیرفعال)';
+        } else if (state.selectedSlotId === slot.id) {
+          statusText = '🟢 در حال انتخاب شما';
+        }
+
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div>
+              <span style="font-size:10px; font-weight:800; background:#e0e7ff; color:#3730a3; padding:2px 6px; border-radius:6px;">صندلی شماره ${idx + 1}</span>
+              <div style="font-family:monospace; font-weight:800; font-size:13px; margin-top:4px; direction:ltr; text-align:right;">${slot.time}</div>
+            </div>
+            <span style="font-size:24px;">💺</span>
+          </div>
+          <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:6px; font-size:11px; font-weight:700;">
+            ${statusText}
+            ${bookedUserHtml}
+          </div>
+        `;
+
+        card.onclick = () => handleSlotClick(slot);
+        container.appendChild(card);
+      });
+    }
+
+    function handleSlotClick(slot) {
+      if (slot.status === 'disabled') {
+        alert('استاد رضا شیرازیان در این بازه در فروشگاه ذهن برتر حضور ندارند.');
+        return;
+      }
+      if (slot.status === 'booked') {
+        alert(`این صندلی قبلاً توسط ${slot.bookedBy} رزرو شده است.`);
+        return;
+      }
+      if (slot.status === 'partial') {
+        const user = state.users[state.currentUserId];
+        if (user && (user.role === 'admin' || user.role === 'store_owner')) {
+          const ok = confirm(`جناب ${user.name}؛ آیا مایلید قفل این ساعت ناقص (${slot.time}) را باز کنید تا نوجوانان بتوانند انتخابش کنند؟`);
+          if (ok) {
+            slot.status = 'available';
+            renderSeats();
+            alert('قفل صندلی باز شد و هم‌اکنون قابل انتخاب است.');
+          }
+        } else {
+          alert('این بازه کمتر از ۲ ساعت است و انتخاب آن نیاز به تایید جناب آقای رضا شیرازیان یا آقای مهدی زرگران دارد.');
+        }
+        return;
+      }
+
+      if (state.selectedSlotId === slot.id) {
+        state.selectedSlotId = null;
+        document.getElementById('booking-status-text').textContent = 'لطفاً یکی از صندلی‌های سفید خالی را برای رزرو لمس کنید.';
+      } else {
+        state.selectedSlotId = slot.id;
+        const user = state.users[state.currentUserId];
+        document.getElementById('booking-status-text').textContent = `صندلی (${slot.time}) برای «${user ? user.name : 'شما'}» در حال انتخاب است.`;
+      }
+      renderSeats();
+    }
+
+    function confirmSelectedSeat() {
+      if (!state.selectedSlotId) {
+        alert('لطفاً ابتدا یک صندلی را لمس کنید.');
+        return;
+      }
+      const week = calendarWeeks.find(w => w.weekId === state.selectedWeek);
+      const day = week.days.find(d => d.dayKey === state.selectedDayKey);
+      const slot = day.slots.find(s => s.id === state.selectedSlotId);
+      const user = state.users[state.currentUserId];
+
+      if (!user) {
+        alert('لطفاً ابتدا وارد حساب کاربری خود شوید.');
+        return;
+      }
+
+      slot.status = 'booked';
+      slot.bookedBy = user.name;
+      slot.avatar = user.avatar;
+      state.selectedSlotId = null;
+
+      if (user.role === 'teen') {
+        user.coins = (user.coins || 0) + 10;
+        renderHeader();
+      }
+
+      renderSeats();
+      document.getElementById('booking-status-text').textContent = 'صندلی با موفقیت ثبت شد!';
+      showToast(`🎉 صندلی کارورزی در شیفت ${slot.time} برای شما با موفقیت رزرو گردید (+۱۰ سکه)!`, 'success');
+    }
+
+    // ========================================================
+    // USERS TABLE & INVITATIONS GENERATOR
+    // ========================================================
+    function renderUsersTable() {
+      const tbody = document.getElementById('users-table-body');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      Object.values(state.users).forEach(u => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid #f1f5f9';
+        
+        const birthDisplay = u.birthdate 
+          ? `<span style="font-family:monospace; font-weight:700; color:#4338ca; direction:ltr;">${u.birthdate}</span>`
+          : `<span style="color:#d97706; font-size:10px; font-weight:700;">ثبت توسط خود کاربر در اولین ورود (با OTP)</span>`;
+
+        const mobileDisplay = u.mobile
+          ? `<span style="font-family:monospace; direction:ltr;">${u.mobile}</span>`
+          : `<span style="color:#64748b; font-size:10px;">هنوز ثبت نشده</span>`;
+
+        tr.innerHTML = `
+          <td style="padding:10px; display:flex; align-items:center; gap:8px;">
+            <img src="${u.avatar}" style="width:28px; height:28px; border-radius:50%; object-fit:cover;">
+            <span style="font-weight:700;">${u.name}</span>
+          </td>
+          <td style="padding:10px; color:#64748b;">${u.title || u.role}</td>
+          <td style="padding:10px; text-align:right;">${birthDisplay}</td>
+          <td style="padding:10px; text-align:right;">${mobileDisplay}</td>
+          <td style="padding:10px; text-align:center;">
+            <button class="btn btn-secondary" style="font-size:10px; padding:4px 8px;" onclick="copySingleUserMessage('${u.id}')">
+              📲 کپی پیام دعوت
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function copyInviteMessage(type) {
+      const url = document.getElementById('public-url-input').value;
+      let text = '';
+
+      if (type === 'shirazian') {
+        text = `🌱 با سلام و احترام خدمت جناب آقای رضا شیرازیان گرامی (استاد و مربی کارورزی در فروشگاه ذهن برتر)؛\nسامانه سراسری کارورزی مدرسه انسان‌گرا و مشارکتی آماده حضور پرمهر شماست:\n\n🔗 آدرس ورود مستقیم اینترنتی:\n${url}\n\n📌 راهنمای ورود استاد کارورزی:\n۱. در صفحه ورود نام خود (آقای رضا شیرازیان) را انتخاب فرمایید.\n۲. تاریخ تولد ۸ رقمی شمسی و شماره همراه خود را وارد نمایید.\n۳. با زدن دکمه دریافت کد تایید (OTP)، کد پیامک‌شده را وارد کنید تا پنل اختصاصی فروشگاه باز شود.\n\nبا احترام و تشکر - مهدی زرگران`;
+      } else if (type === 'hashemi') {
+        text = `🌱 با سلام و احترام خدمت سرکار خانم نصیبه هاشمی گرامی (مربی کارورزی و ادمین نرم‌افزار)؛\nسامانه کارورزی مدرسه انسان‌گرا در «فروشگاه ذهن برتر» آماده است:\n\n🔗 آدرس ورود اینترنتی:\n${url}\n\n📌 راهنمای ورود خانم هاشمی:\n۱. نام خود را از فهرست انتخاب فرمایید.\n۲. تاریخ تولد ۸ رقمی شمسی و شماره همراه خود را وارد کنید.\n۳. با دریافت کد OTP، مستقیماً وارد پنل هدایت تربیتی و گزارش‌های کارورزان خواهید شد.\n\nبا احترام - مهدی زرگران`;
+      } else if (type === 'montazeri') {
+        text = `🌱 با سلام و احترام خدمت جناب آقای ناصر منتظری عزیز (مدیر ارشد و ادمین سامانه)؛\nسامانه سراسری کارورزی «فروشگاه ذهن برتر» آنلاین است:\n\n🔗 آدرس ورود:\n${url}\n\n📌 راهنمای ورود:\nنام خود را انتخاب کرده و با وارد کردن تاریخ تولد ۸ رقمی و شماره موبایل خود (و تایید OTP)، وارد پنل مدیریت کل شوید.\n\nبا احترام - مهدی زرگران`;
+      } else if (type === 'shahab') {
+        text = `🌱 سلام شهاب زرگران عزیز؛\nسامانه کارورزی «فروشگاه ذهن برتر» آماده است!\n\n🔗 آدرس ورود با گوشی:\n${url}\n\n📌 راهنما:\n۱. نام خودت (شهاب زرگران) را انتخاب کن.\n۲. تاریخ تولد ۸ رقمی شمسی و شماره موبایلت را بنویس.\n۳. کد تایید پیامکی (OTP) را بزن تا وارد گیشه انتخاب صندلی و اتاق بازی‌ها شوی!\n\nمهدی زرگران`;
+      } else if (type === 'navid') {
+        text = `🌱 سلام نوید شاهزیدی عزیز؛\nسامانه کارورزی «فروشگاه ذهن برتر» آماده است!\n\n🔗 آدرس ورود با گوشی:\n${url}\n\n📌 راهنما:\n۱. نام خودت (نوید شاهزیدی) را انتخاب کن.\n۲. تاریخ تولد ۸ رقمی شمسی و شماره موبایلت را بنویس.\n۳. کد تایید پیامکی (OTP) را بزن تا صندلی کارورزی‌ات را انتخاب کنی!\n\nمهدی زرگران`;
+      } else {
+        text = `🌱 با سلام و احترام خدمت خانواده‌ها، مربیان و کارورزان عزیز مدرسه انسان‌گرا؛\nسامانه سراسری کارورزی «فروشگاه ذهن برتر» فعال گردید:\n\n🔗 پیوند ورود اینترنتی (بدون نیاز به فیلترشکن):\n${url}\n\n📌 راهنمای ورود:\n۱. نام خود را از فهرست انتخاب فرمایید (یا کارورز جدید را بزنید).\n۲. تاریخ تولد ۸ رقمی شمسی (بدون اسلش) و شماره همراه خود را وارد نمایید.\n۳. با زدن دکمه دریافت کد تایید (OTP)، کد را وارد کنید تا وارد میز کار اختصاصی خود شوید.\n\n📱 جهت سهولت دسترسی در گوشی: صفحه را در مرورگر کروم باز کرده و گزینه «افزودن به صفحه اصلی (Add to Home screen)» را لمس فرمایید.\nبا احترام و آرزوی رشد روزافزون - مهدی زرگران`;
+      }
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✓ متن دعوت‌نامه رسمی با موفقیت کپی شد! می‌توانید در ایتا، بله، تلگرام یا واتساپ ارسال فرمایید.', 'success');
+      });
+    }
+
+    function copySingleUserMessage(userId) {
+      const u = state.users[userId];
+      const url = document.getElementById('public-url-input').value;
+      let text = '';
+      if (u.birthdate && u.mobile) {
+        text = `🌱 با سلام خدمت ${u.name} گرامی؛\nسامانه سراسری کارورزی مدرسه انسان‌گرا در «فروشگاه ذهن برتر» آماده است:\n\n🔗 آدرس ورود مستقیم:\n${url}\n\n👤 کد کاربری شما: ${u.birthdate}\n🔑 شماره همراه: ${u.mobile}\n\nبا احترام - مهدی زرگران (ادمین ارشد)`;
+      } else {
+        text = `🌱 با سلام خدمت ${u.name} گرامی؛\nبه سامانه سراسری کارورزی مدرسه انسان‌گرا در «فروشگاه ذهن برتر» خوش آمدید.\n\n🔗 آدرس ورود مستقیم (بدون فیلترشکن):\n${url}\n\n📌 راهنمای ورود در اولین مراجعه:\n۱. نام خود را از فهرست انتخاب فرمایید.\n۲. تاریخ تولد ۸ رقمی شمسی خود را (پیوسته و بدون اسلش، مثلاً 13541229) وارد کنید.\n۳. شماره همراه خود را وارد کرده و با زدن دکمه «دریافت کد تایید OTP»، کد پیامک‌شده را وارد نمایید.\n(این مشخصات به عنوان مشخصات دائم شما در سامانه ثبت می‌گردد).\n\nبا آرزوی موفقیت و رشد - مهدی زرگران`;
+      }
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(`📋 پیام دعوت اختصاصی برای «${u.name}» کپی شد!`, 'success');
+      });
+    }
+
+    function downloadComprehensiveHandbook() {
+      const url = document.getElementById('public-url-input').value;
+      const htmlContent = `<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>راهنمای جامع کاربران سامانه کارورزی - فروشگاه ذهن برتر</title>
+<style>
+body { font-family: Tahoma, sans-serif; padding: 24px; line-height: 1.8; color: #1e293b; background: #f8fafc; }
+.card { background: #fff; border: 2px solid #818cf8; border-radius: 16px; padding: 20px; margin-bottom: 20px; }
+h1, h2 { color: #3730a3; }
+.link-box { background: #e0e7ff; padding: 12px; border-radius: 10px; font-weight: bold; font-family: monospace; direction: ltr; text-align: left; }
+</style>
+</head>
+<body>
+<div class="card">
+<h1>🌱 راهنمای جامع کاربران سامانه کارورزی مدرسه انسان‌گرا</h1>
+<p>این سامانه برای انتخاب صندلی‌های کارورزی در «فروشگاه کتاب، اسباب‌بازی و هدایای ذهن برتر» طراحی شده است.</p>
+<div class="link-box">${url}</div>
+<h2>📌 راهنمای ورود برای اعضا:</h2>
+<ul>
+<li><strong>جناب آقای مهدی زرگران (مدیر ارشد سامانه):</strong> کد کاربری 13541229 | شماره 09133544489</li>
+<li><strong>سایر اعضا و کارورزان (استاد شیرازیان، خانم هاشمی، آقای منتظری، شهاب، نوید و سایرین):</strong> نام خود را انتخاب کرده، تاریخ تولد ۸ رقمی شمسی و شماره همراه خود را وارد فرموده و با کد تایید پیامکی (OTP) وارد می‌شوید. (این مشخصات در اولین ورود ثبت قطعی می‌گردد).</li>
+</ul>
+<h2>📱 نحوه نصب روی گوشی موبایل (اندروید و آیفون):</h2>
+<p>کافی است لینک بالا را در مرورگر کروم باز کنید و از منوی سه نقطه گزینه «افزودن به صفحه اصلی (Add to Home screen)» را بزنید.</p>
+</div>
+</body>
+</html>`;
+
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'راهنمای_جامع_سامانه_کارورزی_ذهن_برتر.html';
+      a.click();
+      showToast('✓ فایل راهنمای جامع کاربران دانلود شد.', 'success');
+    }
+
+    // ========================================================
+    // MINI-GAMES IMPLEMENTATION
+    // ========================================================
+    function switchMiniGame(gameId) {
+      state.activeMiniGame = gameId;
+      ['sorter', 'cashier', 'memory'].forEach(g => {
+        const sub = document.getElementById('subgame-' + g);
+        const btn = document.getElementById('btn-game-' + g);
+        if (sub) sub.style.display = (g === gameId ? 'flex' : 'none');
+        if (btn) btn.className = 'btn ' + (g === gameId ? 'btn-primary' : 'btn-secondary');
+      });
+    }
+
+    // Game 1: Sorter
+    const sorterList = [
+      { title: 'کتاب داستان شاهنامه فردوسی', cat: 'books', icon: '📖' },
+      { title: 'پازل ۱۰۰۰ تکه نقشه جهان', cat: 'toys', icon: '🧩' },
+      { title: 'جعبه کادویی فانتزی طرح گل', cat: 'gifts', icon: '🎁' },
+      { title: 'رمان شازده کوچولو', cat: 'books', icon: '📚' },
+      { title: 'بازی فکری مونوپولی کلاسیک', cat: 'toys', icon: '🎲' },
+      { title: 'ماگ سرامیکی طرح انگیزشی', cat: 'gifts', icon: '☕' }
+    ];
+    let sorterIdx = 0;
+
+    function handleSorterDrop(category) {
+      const currentItem = sorterList[sorterIdx % sorterList.length];
+      if (currentItem.cat === category) {
+        state.sorterScore += 10;
+        document.getElementById('sorter-score').textContent = state.sorterScore;
+        awardCoins(2);
+        showToast('🎯 آفرین! چیدمان قفسه کاملاً درست بود (+۲ سکه)', 'success');
+      } else {
+        showToast('⚠️ دقت کن عزیزم، این کالا متعلق به این قفسه نیست!', 'warning');
+      }
+      sorterIdx++;
+      const nextItem = sorterList[sorterIdx % sorterList.length];
+      document.getElementById('sorter-item-name').textContent = nextItem.title;
+      document.getElementById('sorter-item-icon').textContent = nextItem.icon;
+    }
+
+    // Game 2: Cashier
+    const cashierQuestions = [
+      { q: 'مشتری یک کتاب داستان به قیمت ۴۵,۰۰۰ تومان و یک خودکار به قیمت ۱۵,۰۰۰ تومان خریده است. مجموع چقدر می‌شود؟', ans: 60000, opts: [55000, 60000, 65000] },
+      { q: 'مشتری یک بازی فکری به قیمت ۱۲۰,۰۰۰ تومان برداشته و یک اسکناس ۱۵۰,۰۰۰ تومانی داده است. باقی‌مانده چقدر است؟', ans: 30000, opts: [20000, 30000, 40000] },
+      { q: 'مشتری دو دفتر نقاشی هرکدام ۲۵,۰۰۰ تومان و یک مدادرنگی ۳۰,۰۰۰ تومانی خریده است. جمع کل؟', ans: 80000, opts: [75000, 80000, 85000] }
+    ];
+    let cashierIdx = 0;
+
+    function renderCashierQuestion() {
+      const q = cashierQuestions[cashierIdx % cashierQuestions.length];
+      const qText = document.getElementById('cashier-question-text');
+      const optContainer = document.getElementById('cashier-options-container');
+      if (!qText || !optContainer) return;
+
+      qText.textContent = q.q;
+      optContainer.innerHTML = '';
+      q.opts.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-secondary';
+        btn.style.fontFamily = 'monospace';
+        btn.style.fontSize = '13px';
+        btn.style.fontWeight = '700';
+        btn.textContent = Number(opt).toLocaleString('fa-IR') + ' تومان';
+        btn.onclick = () => handleCashierAnswer(opt, q.ans);
+        optContainer.appendChild(btn);
+      });
+    }
+
+    function handleCashierAnswer(selected, correct) {
+      if (selected === correct) {
+        state.cashierScore += 15;
+        document.getElementById('cashier-score').textContent = state.cashierScore;
+        awardCoins(3);
+        showToast('🎉 حسابداری و محاسبه صندوق کاملاً درست بود! (+۳ سکه)', 'success');
+      } else {
+        showToast('⚠️ مبلغ محاسبه‌شده اشتباه است، دوباره دقت کن!', 'warning');
+      }
+      cashierIdx++;
+      renderCashierQuestion();
+    }
+
+    // Game 3: Memory Cards
+    const memoryCardsData = ['📖', '📖', '🧩', '🧩', '🎁', '🎁', '🎨', '🎨'];
+    let flippedCards = [];
+    let matchedPairs = 0;
+
+    function initMemoryGame() {
+      const grid = document.getElementById('memory-cards-grid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      flippedCards = [];
+      matchedPairs = 0;
+
+      const shuffled = [...memoryCardsData].sort(() => Math.random() - 0.5);
+      shuffled.forEach((icon, i) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.height = '70px';
+        card.style.display = 'flex';
+        card.style.alignItems = 'center';
+        card.style.justifyContent = 'center';
+        card.style.fontSize = '26px';
+        card.style.cursor = 'pointer';
+        card.style.background = '#e0e7ff';
+        card.dataset.icon = icon;
+        card.dataset.index = i;
+        card.textContent = '❓';
+
+        card.onclick = () => handleMemoryFlip(card);
+        grid.appendChild(card);
+      });
+    }
+
+    function handleMemoryFlip(card) {
+      if (flippedCards.length >= 2 || card.textContent !== '❓') return;
+
+      card.textContent = card.dataset.icon;
+      card.style.background = '#ffffff';
+      flippedCards.push(card);
+
+      if (flippedCards.length === 2) {
+        const [c1, c2] = flippedCards;
+        if (c1.dataset.icon === c2.dataset.icon) {
+          c1.style.background = '#dcfce7';
+          c2.style.background = '#dcfce7';
+          matchedPairs++;
+          flippedCards = [];
+          if (matchedPairs === 4) {
+            awardCoins(10);
+            showToast('🏆 تبریک! حافظه شما عالی کار کرد و همه جفت‌ها را پیدا کردید (+۱۰ سکه)', 'success');
+          }
+        } else {
+          setTimeout(() => {
+            c1.textContent = '❓';
+            c2.textContent = '❓';
+            c1.style.background = '#e0e7ff';
+            c2.style.background = '#e0e7ff';
+            flippedCards = [];
+          }, 900);
+        }
+      }
+    }
+
+    function awardCoins(amount) {
+      if (!state.currentUserId) return;
+      const user = state.users[state.currentUserId];
+      if (user && user.role === 'teen') {
+        user.coins = (user.coins || 0) + amount;
+        renderHeader();
+      }
+    }
+
+    // ========================================================
+    // CHAT SYSTEM
+    // ========================================================
+    function renderChatMessages() {
+      const container = document.getElementById('chat-messages-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      state.chatMessages.forEach(msg => {
+        const div = document.createElement('div');
+        div.style.marginBottom = '10px';
+        div.style.display = 'flex';
+        div.style.flexDirection = 'column';
+        div.style.alignItems = msg.role === 'teen' ? 'flex-start' : 'flex-end';
+
+        const bubble = document.createElement('div');
+        bubble.style.maxWidth = '80%';
+        bubble.style.padding = '8px 12px';
+        bubble.style.borderRadius = '12px';
+        bubble.style.fontSize = '12px';
+        bubble.style.background = msg.role === 'teen' ? '#e0e7ff' : '#f1f5f9';
+        bubble.style.color = '#1e293b';
+
+        bubble.innerHTML = `
+          <div style="font-weight:700; font-size:10px; color:#4338ca; margin-bottom:2px;">${msg.from} (${msg.time})</div>
+          <div>${msg.text}</div>
+        `;
+        div.appendChild(bubble);
+        container.appendChild(div);
+      });
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function sendChatMessage() {
+      const input = document.getElementById('chat-input-text');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const user = state.users[state.currentUserId] || { name: 'کاربر ناشناس', role: 'teen' };
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+      state.chatMessages.push({
+        from: user.name,
+        role: user.role,
+        text: text,
+        time: timeStr
+      });
+
+      input.value = '';
+      renderChatMessages();
+    }
+
+    // ========================================================
+    // AUDIO REPORT & TEXT REPORT
+    // ========================================================
+    function toggleAudioRecording() {
+      const btn = document.getElementById('btn-record-audio');
+      const label = document.getElementById('audio-record-label');
+      if (!state.isRecordingAudio) {
+        state.isRecordingAudio = true;
+        state.audioSeconds = 0;
+        btn.className = 'btn btn-sos';
+        label.textContent = 'توقف ضبط صدا';
+        state.audioInterval = setInterval(() => {
+          state.audioSeconds++;
+          const m = String(Math.floor(state.audioSeconds / 60)).padStart(2, '0');
+          const s = String(state.audioSeconds % 60).padStart(2, '0');
+          document.getElementById('audio-timer-label').textContent = `${m}:${s} / 05:00`;
+        }, 1000);
+      } else {
+        state.isRecordingAudio = false;
+        clearInterval(state.audioInterval);
+        btn.className = 'btn btn-success';
+        label.textContent = 'صدا با موفقیت ضبط شد ✓';
+      }
+    }
+
+    function submitReportAction() {
+      const text = document.getElementById('report-text-input').value.trim();
+      if (!text && !state.audioSeconds) {
+        alert('لطفاً گزارش متنی یا صوتی را ثبت فرمایید.');
+        return;
+      }
+      awardCoins(15);
+      showToast('🎉 گزارش با موفقیت برای مربی (خانم هاشمی) و استاد کارورزی (آقای شیرازیان) ارسال گردید (+۱۵ سکه).', 'success');
+      document.getElementById('report-text-input').value = '';
+      document.getElementById('report-question-input').value = '';
+    }
+
+    // Audio Guide Voice (TTS)
+    function toggleAudioGuide() {
+      const text = document.getElementById('voice-guide-text').textContent;
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'fa-IR';
+        u.rate = 0.9;
+        window.speechSynthesis.speak(u);
+      } else {
+        alert(text);
+      }
+    }
+
+    // Alarms
+    function triggerAlarmTest() {
+      state.alarmActive = true;
+      state.alarmCountdown = 300;
+      document.getElementById('modal-alarm').className = 'modal-overlay active';
+      if (state.alarmTimer) clearInterval(state.alarmTimer);
+      state.alarmTimer = setInterval(() => {
+        if (state.alarmCountdown > 0) {
+          state.alarmCountdown--;
+          document.getElementById('alarm-countdown').textContent = state.alarmCountdown;
+        } else {
+          state.alarmCountdown = 300;
+        }
+      }, 1000);
+    }
+
+    function acknowledgeAlarmAction() {
+      state.alarmActive = false;
+      if (state.alarmTimer) clearInterval(state.alarmTimer);
+      document.getElementById('modal-alarm').className = 'modal-overlay';
+      awardCoins(5);
+      showToast('⏰ خوش‌قولی شما تایید شد! ۵ سکه همیاری دریافت کردید.', 'success');
+    }
+
+    // Modals Helpers
+    function openLoginModal() { openOfficialLoginModal(); }
+    function closeLoginModal() { document.getElementById('modal-login').className = 'modal-overlay'; }
+    function openOfficialLoginModal() { showLoginView(); }
+
+    function openAddTeenModal() { document.getElementById('modal-add-teen').className = 'modal-overlay active'; }
+    function closeAddTeenModal() { document.getElementById('modal-add-teen').className = 'modal-overlay'; }
+
+    function saveNewTeenAction() {
+      const name = document.getElementById('new-teen-name').value.trim();
+      const birth = document.getElementById('new-teen-birth').value.replace(/[\/\-\_\s]/g, '');
+      const phone = document.getElementById('new-teen-phone').value.trim();
+      if (!name || !phone) {
+        alert('لطفاً نام و شماره همراه را وارد کنید.');
+        return;
+      }
+      const newId = 'u' + Date.now();
+      state.users[newId] = {
+        id: newId,
+        role: 'teen',
+        name: name,
+        title: 'کارورز نوجوان',
+        birthdate: birth || '',
+        mobile: phone,
+        coins: 100,
+        avatar: 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80',
+        online: true
+      };
+      renderUsersTable();
+      closeAddTeenModal();
+      showToast(`کارورز «${name}» با موفقیت افزوده شد و ۱۰۰ سکه هدیه دریافت کرد.`, 'success');
+    }
+
+    function openAvatarModal() { document.getElementById('modal-avatar').className = 'modal-overlay active'; }
+    function closeAvatarModal() { document.getElementById('modal-avatar').className = 'modal-overlay'; }
+    function handleAvatarFile(e) {
+      const f = e.target.files[0];
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = (evt) => {
+        document.getElementById('avatar-preview-img').src = evt.target.result;
+        if (state.currentUserId && state.users[state.currentUserId]) {
+          state.users[state.currentUserId].avatar = evt.target.result;
+          renderHeader();
+        }
+      };
+      r.readAsDataURL(f);
+    }
+
+    function openPdfModal() { document.getElementById('modal-pdf').className = 'modal-overlay active'; }
+    function closePdfModal() { document.getElementById('modal-pdf').className = 'modal-overlay'; }
+
+    function openSosModal() { document.getElementById('modal-sos').className = 'modal-overlay active'; }
+    function closeSosModal() { document.getElementById('modal-sos').className = 'modal-overlay'; }
+
+    // ========================================================
+    // TOAST NOTIFICATION SYSTEM
+    // ========================================================
+    function showToast(message, type = 'info') {
+      let toast = document.getElementById('global-app-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'global-app-toast';
+        toast.style.position = 'fixed';
+        toast.style.bottom = '24px';
+        toast.style.right = '24px';
+        toast.style.zIndex = '99999';
+        toast.style.maxWidth = '420px';
+        toast.style.padding = '12px 18px';
+        toast.style.borderRadius = '12px';
+        toast.style.fontSize = '12px';
+        toast.style.fontWeight = '800';
+        toast.style.boxShadow = '0 10px 30px rgba(0,0,0,0.25)';
+        toast.style.direction = 'rtl';
+        toast.style.textAlign = 'right';
+        toast.style.transition = 'all 0.3s ease-in-out';
+        document.body.appendChild(toast);
+      }
+      if (type === 'success') {
+        toast.style.background = '#065f46';
+        toast.style.color = '#ecfdf5';
+        toast.style.border = '2px solid #34d399';
+      } else if (type === 'warning') {
+        toast.style.background = '#854d0e';
+        toast.style.color = '#fefce8';
+        toast.style.border = '2px solid #facc15';
+      } else {
+        toast.style.background = '#312e81';
+        toast.style.color = '#e0e7ff';
+        toast.style.border = '2px solid #818cf8';
+      }
+      toast.innerHTML = message;
+      toast.style.display = 'block';
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateY(0)';
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        setTimeout(() => { toast.style.display = 'none'; }, 300);
+      }, 4000);
+    }
+
+    // ========================================================
+    // ALT + LEFT CLICK ELEMENT INSPECTOR
+    // ========================================================
+    function initElementInspector() {
+      window.addEventListener('click', function(e) {
+        if (e.altKey && e.button === 0) {
+          e.preventDefault();
+          e.stopPropagation();
+          inspectElement(e.target);
+        }
+      }, true);
+    }
+
+    function inspectElement(el) {
+      if (!el) return;
+
+      // Visual outline & glow
+      const origOutline = el.style.outline;
+      const origShadow = el.style.boxShadow;
+      const origTransition = el.style.transition;
+      el.style.transition = 'all 0.2s ease-in-out';
+      el.style.outline = '3px solid #8b5cf6';
+      el.style.boxShadow = '0 0 18px rgba(139, 92, 246, 0.95)';
+      setTimeout(() => {
+        el.style.outline = origOutline;
+        el.style.boxShadow = origShadow;
+        el.style.transition = origTransition;
+      }, 2500);
+
+      function getCssSelector(element) {
+        if (element.id) return `#${element.id}`;
+        let path = [];
+        let curr = element;
+        while (curr && curr.nodeType === Node.ELEMENT_NODE) {
+          let selector = curr.nodeName.toLowerCase();
+          if (curr.id) {
+            selector += `#${curr.id}`;
+            path.unshift(selector);
+            break;
+          } else {
+            let sib = curr, nth = 1;
+            while (sib = sib.previousElementSibling) {
+              if (sib.nodeName.toLowerCase() === selector) nth++;
+            }
+            if (nth !== 1) selector += `:nth-of-type(${nth})`;
+          }
+          path.unshift(selector);
+          curr = curr.parentNode;
+        }
+        return path.join(' > ');
+      }
+
+      function getXPath(element) {
+        if (element.id) return `//*[@id="${element.id}"]`;
+        let path = [];
+        let curr = element;
+        while (curr && curr.nodeType === Node.ELEMENT_NODE) {
+          let index = 1;
+          let sib = curr.previousSibling;
+          while (sib) {
+            if (sib.nodeType === 1 && sib.tagName === curr.tagName) index++;
+            sib = sib.previousSibling;
+          }
+          path.unshift(`${curr.tagName.toLowerCase()}[${index}]`);
+          curr = curr.parentNode;
+        }
+        return '/' + path.join('/');
+      }
+
+      const rect = el.getBoundingClientRect();
+      const cssSelector = getCssSelector(el);
+      const xpath = getXPath(el);
+      const user = state.currentUserId ? state.users[state.currentUserId] : null;
+      const userInfo = user ? `${user.name} (${user.role} - ID: ${user.id})` : 'صفحه ورود (کاربر هنوز وارد نشده است)';
+      const currentTab = state.activeMainTab || 'login';
+
+      const innerTextSnippet = (el.innerText || '').trim().slice(0, 300);
+      const outerHtmlSnippet = (el.outerHTML || '').slice(0, 1500);
+
+      const report = [
+        '### 🔍 گزارش بازرسی المان (Element Inspection Report)',
+        '- **صفحه / بخش فعال:** ' + currentTab,
+        '- **کاربر جاری:** ' + userInfo,
+        '- **تگ المان (Tag):** <' + el.tagName.toLowerCase() + '>',
+        '- **شناسه (ID):** ' + (el.id || '(بدون شناسه)'),
+        '- **کلاس‌ها (Classes):** ' + (el.className || '(بدون کلاس)'),
+        '- **سلکتور CSS:** ' + cssSelector,
+        '- **مسیر کامل XPath:** ' + xpath,
+        '- **موقعیت و ابعاد:** عرض: ' + Math.round(rect.width) + 'px | ارتفاع: ' + Math.round(rect.height) + 'px | موقعیت (X: ' + Math.round(rect.left) + ', Y: ' + Math.round(rect.top) + ')',
+        '',
+        '- **محتوای متنی (innerText):**',
+        '```text',
+        innerTextSnippet || '(بدون متن)',
+        '```',
+        '',
+        '- **کد HTML المان (outerHTML):**',
+        '```html',
+        outerHtmlSnippet,
+        '```'
+      ].join('\n');
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(report).then(() => {
+          showToast('📋 مشخصات، Element Location و محتوای این بخش کپی شد! (آماده Paste برای هوش مصنوعی)', 'success');
+        }).catch(() => {
+          showToast('📋 مشخصات المان بازرسی شد.', 'info');
+        });
+      } else {
+        showToast('📋 مشخصات المان بازرسی شد.', 'info');
+      }
+    }
+
+  </script>
+</body>
+</html>
